@@ -1,0 +1,14 @@
+CP0B PASS: synthesis and functional debug-netlist simulation
+Baseline: 29b2e748e72c592a5a895c2b11fa85bc9080f67a
+PDK: sg13cmos5l
+OSS CAD Suite: 2025-12-30
+Synthesis evidence: /Users/jerryyun/projects/croc-cnn-native/native/results/cp0b-synth-20261017-225458-1owQKN
+Simulation evidence: /Users/jerryyun/projects/croc-cnn-native/native/results/cp0b-sim-20261017-235714-TkBgti
+Programs: helloworld, test/print_config, test/test_compute
+This is not an SDF timing test or formal equivalence proof.
+Cell area is not routed core/die area; no measured Fmax yet.
+477d7fd6205aa4824ffcc53aadc24e7d11de5ac6511c7ff51b02e639e4d93149  yosys/out/croc_yosys.v
+fa6a602ab4aa711e7b434438dba8b314ffaa9c45949636a023fa1ec64f5d52c8  yosys/out/netlist_debug.v
+4c29438e3fafcd420d73ff48c92ac6e3b98463a38c42fc6d9ee617034a4aca71  sw/bin/helloworld.hex
+80b94051060c827519be8b6424c3a45a5688797d9911283770618c243c644c17  sw/bin/test/print_config.hex
+03c636c86dc4f21c54a81aa0e05fe035a99d66d94f935dafe0cbbc420c6629a4  sw/bin/test/test_compute.hex
