@@ -1,0 +1,26 @@
+Checkpoint: native Croc firmware and RTL baseline PASS
+Tests: helloworld, print_config, test_compute
+Upstream commit: 29b2e748e72c592a5a895c2b11fa85bc9080f67a
+
+Host:
+ProductName:		macOS
+ProductVersion:		26.6.2
+BuildVersion:		25G83
+arm64
+
+Tools:
+Apple clang version 17.0.0 (clang-1700.0.13.5)
+Target: arm64-apple-darwin25.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+bender 0.32.1
+Verilator 5.052 2026-09-05 rev vUNKNOWN-built20260905
+riscv64-unknown-elf-gcc (g1b306039a) 15.1.0
+Copyright (C) 2025 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+lz4 1.10.0
+
+Evidence directory:
+native/results/20261017-214145-lz4-fix-921
