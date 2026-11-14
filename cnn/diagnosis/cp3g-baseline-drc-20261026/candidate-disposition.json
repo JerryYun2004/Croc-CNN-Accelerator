@@ -1,0 +1,13 @@
+{
+  "status": "DRC_FAIL",
+  "current_evidence": "native-full-drc.rpt",
+  "violations": 1,
+  "net": "cp3d_fanout_net_30763077",
+  "connected_polygon_observation": "LEF/DEF reconstruction covers the marker with connected Metal2; exact checker edge identities remain unresolved.",
+  "focused_box_did_not_clear": true,
+  "checker_internals_investigation": "STOPPED; no rebuild or instrumentation",
+  "hold_margin": "UNRESOLVED",
+  "cp3g_acceptance": "PENDING",
+  "signoff": "PENDING",
+  "cp0c_electrical": "PENDING"
+}

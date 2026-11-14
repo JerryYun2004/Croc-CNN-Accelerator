@@ -1,0 +1,108 @@
+# Fresh isolated parent extraction; included PDK sources remain unchanged.
+threads(2)
+# %include sg13cmos5l.lvs
+require 'json'
+require 'fileutils'
+
+def cp0p_assert(ok,message)
+  raise message unless ok
+end
+def cp0p_all(object,method)
+  result=[];object.send(method) { |x| result << x };result
+end
+def cp0p_inventory(c)
+  {name:c.name,nets:cp0p_all(c,:each_net).map(&:expanded_name).sort,
+   pins:cp0p_all(c,:each_pin).map { |p| [p.name,c.net_for_pin(p.id)&.expanded_name] },
+   devices:cp0p_all(c,:each_device).map do |d|
+     dc=d.device_class
+     {name:d.expanded_name,model:dc.name,
+      parameters:dc.parameter_definitions.to_h { |p| [p.name,d.parameter(p.id)] },
+      terminals:dc.terminal_definitions.to_h { |t| [t.name,d.net_for_terminal(t.id)&.expanded_name] }}
+   end}
+end
+def cp0p_save(config,report,milestone)
+  report[:milestone]=milestone
+  File.write(config.fetch('result'),JSON.pretty_generate(report)+"\n")
+end
+
+cp0p_assert(NET_ONLY && !SIMPLIFY && !COMBINE_DEVICES && !PURGE && !PURGE_NETS,
+            'Unexpected extraction/simplification switches')
+cp0p_assert(!DISABLE_TAP_EXTRACTION && !IGNORE_TOP_PORTS_MISMATCH && IMPLICIT_NETS.empty?,
+            'Unexpected waiver or implicit-connection switch')
+cp0p_assert(PARALLEL_RES && !SERIES_RES,'Tap reduction requires parallel enabled and series disabled')
+config=JSON.parse(File.read($cp0p_config))
+require config.fetch('audit_helper')
+state=lvs_data
+nl=netlist
+# The pinned deck has already created the parent boundary pins in deep mode.
+# Flatten afterwards; creating pins again would expose named child-internal nets.
+nl.flatten
+c=nl.top_circuit
+cp0p_assert(nl.top_circuits.size==1 && c.name=='sg13cmos5l_LevelDown','Unexpected extracted top')
+before=cp0p_inventory(c)
+report={variant:config.fetch('variant'),before_combine:before,net_joins:0,
+        implicit_connections:[],blackboxes:[],tap_extraction_enabled:true,references:[]}
+cp0p_save(config,report,'raw_parent_extracted')
+cp0p_assert(before[:nets].uniq.size==before[:nets].size,'Ambiguous flattened net names')
+# Normalize JSON keys for the standalone, regression-tested auditor.
+pre_audit=JSON.parse(JSON.generate(before),symbolize_names:true)
+IOParentTapAudit.before(pre_audit)
+# The two child tap rings are parallel devices with the same ordered endpoints.
+# Use the pinned CustomTap combiner, retaining summed A/P. No nets are joined.
+nl.combine_devices
+after=cp0p_inventory(c)
+report[:after_combine]=after
+cp0p_save(config,report,'parallel_devices_combined')
+report[:tap_reduction_audit]=IOParentTapAudit.after(pre_audit,JSON.parse(JSON.generate(after),symbolize_names:true))
+cp0p_save(config,report,'tap_reduction_verified')
+devices=cp0p_all(c,:each_device)
+counts=devices.each_with_object(Hash.new(0)) { |d,h| h[d.device_class.name.downcase]+=1 }
+expected={'sg13_lv_nmos'=>1,'sg13_hv_nmos'=>1,'sg13_lv_pmos'=>1,'sg13_hv_pmos'=>1,
+          'ptap1'=>2,'dantenna'=>1,'dpantenna'=>1}
+expected['rppd']=1 if config.fetch('variant')=='marker'
+cp0p_assert(counts==expected,'Fresh parent device inventory differs: '+counts.to_s)
+cp0p_assert(cp0p_all(c,:each_subcircuit).empty?,'Parent did not flatten completely')
+ps=cp0p_all(c,:each_pin)
+cp0p_assert(ps.map(&:name).sort==%w[core iovdd iovss pad vdd vss],'Extracted parent port set differs')
+witnesses=[]
+devices.each do |d|
+  model=d.device_class.name.downcase
+  term=case model
+  when 'sg13_lv_nmos','sg13_hv_nmos'; 'B'
+  when 'ptap1'; 'WELL'
+  when 'dantenna'; 'A'
+  when 'rppd'; 'rppd_sub'
+  end
+  witnesses << [d,term,d.net_for_terminal(term)] unless term.nil?
+end
+report[:substrate_witnesses]=witnesses.map { |d,t,n| {device:d.expanded_name,terminal:t,net:n&.expanded_name,cluster:n&.cluster_id} }
+cp0p_save(config,report,'substrate_witnesses_collected')
+cp0p_assert(witnesses.size==(config.fetch('variant')=='marker' ? 6 : 5),'Substrate witness coverage differs')
+cp0p_assert(witnesses.all? { |d,t,n| !n.nil? },'Disconnected physical substrate terminal')
+bulk=witnesses.first[2]
+# Expanded names are unambiguous within this one flattened circuit: the
+# inventory audit above explicitly requires a unique key for every net.
+cp0p_assert(witnesses.all? { |d,t,n| n.expanded_name==bulk.expanded_name },'Physical substrate is split in parent context')
+cp0p_assert(ps.none? { |p| c.net_for_pin(p.id).expanded_name==bulk.expanded_name },
+            'Isolated substrate unexpectedly aliases an existing external port')
+# A measurement/test boundary port on one already-existing physical net.
+c.connect_pin(c.create_pin('sub!'),bulk)
+errors=cp0p_all(state,:each_error).map(&:to_s)
+cp0p_assert(errors.empty?,'Extraction errors: '+errors.to_s)
+report.merge!({layout:cp0p_inventory(c),extraction_errors:errors,
+               substrate_cluster:bulk.cluster_id,substrate_net_key:bulk.expanded_name,added_boundary_port:'sub!'})
+cp0p_save(config,report,'substrate_boundary_verified')
+config.fetch('references').each do |name,path|
+  ref=RBA::Netlist.new
+  ref.read(path,RBA::NetlistSpiceReader.new(CustomReader.new))
+  ref.flatten
+  cp0p_assert(ref.top_circuits.size==1,'Reference top count differs')
+  cp0p_assert(ref.top_circuit.name.upcase==c.name.upcase,'Reference top name differs')
+  state.reference=ref
+  dest=File.join(config.fetch('output'),name+'.lvsdb')
+  state.write(dest)
+  report[:references] << {name:name,database:dest,reference:cp0p_inventory(state.reference.top_circuit)}
+  cp0p_save(config,report,'reference_saved_'+name)
+end
+cp0p_save(config,report,'complete')
+puts 'CP0C_IO_PARENT_EXTRACTION_COMPLETE '+config.fetch('variant')

@@ -1,0 +1,3 @@
+violation type: Metal Spacing
+	srcs: net:cp3d_fanout_net_30763077
+	bbox = (557.6850, 840.9850) - (557.8850, 841.1150) on Layer Metal2

@@ -1,0 +1,47 @@
+{
+  "source": "accepted CP3F baseline",
+  "cell": "cp3d_fanout_buf_22022203",
+  "master": "sg13g2_buf_4",
+  "old_origin_dbu": [
+    1367520,
+    1050840
+  ],
+  "new_origin_dbu": [
+    1366080,
+    1050840
+  ],
+  "orientation": "N",
+  "allowed": [
+    "one specified cell origin",
+    "normal signal/clock routing geometry",
+    "regenerated global guides/GCELLGRID",
+    "new signal via definitions"
+  ],
+  "forbidden": [
+    "all other cell attributes/placements",
+    "cell master/orientation",
+    "net-terminal membership and logical clock topology",
+    "special-net/power-grid geometry",
+    "old via definitions",
+    "ports/pins/rows/blockages/diearea/tracks",
+    "constraints/libraries/NDR definitions or assignments",
+    "wire classification changes",
+    "speculative fanout Via2 edit"
+  ],
+  "route_timeout_seconds": 3600,
+  "route_iteration_limit": 20,
+  "route_threads": 8,
+  "power_and_preservation_timeout_seconds": 300,
+  "drc_timeout_seconds": 300,
+  "drc_threads": 2,
+  "retries": 0,
+  "runtime_discrepancy": "UNRESOLVED",
+  "pending": [
+    "two prior fresh-only spacing markers; complete new DRC report controls this candidate",
+    "extraction",
+    "timing/electrical",
+    "0.1ns hold margin",
+    "CP3G acceptance/signoff",
+    "CP0C_ELECTRICAL_PENDING"
+  ]
+}

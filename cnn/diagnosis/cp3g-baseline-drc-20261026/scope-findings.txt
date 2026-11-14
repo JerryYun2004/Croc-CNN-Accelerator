@@ -1,0 +1,7 @@
+Scope investigation (five calls; no OpenROAD execution):
+Pinned Tcl forwards four box coordinates directly to integer C++ arguments; no micron conversion. Technology LEF and DEF both specify 1000 units/micron. Invocation {555500 838500 560000 843500} encloses the reported marker.
+getDRCMarkers selects 7x7 GCell workers whose expanded DRC boxes intersect the requested box. Workers use expanded drcBox and extBox context; markers are then filtered by intersection with requested box. Omitting -box selects the design bounding box. Thus box checking is worker selection and marker filtering, not an independent clipped design.
+The source does not explain the empty box report: the marker is enclosed and relevant workers should be selected. Exact runtime worker selection, loaded database units, and shape classification were not captured. No unchanged-input rerun is justified.
+Full-design native DRC remains controlling: one Metal2 spacing violation, not cleared by the focused check and not established as a false positive.
+No geometry repair is yet justified: need checker identification of the two offending maximal rectangles/true polygon edges and their fixed/routed classification, including treatment of the connecting Metal2 segment. A via-spacing ECO may be considered only after that observation, on a separate candidate with connectivity, full-design DRC and extracted-timing checks.
+Hold-margin failure and all prior CP3G/signoff limitations remain unresolved.

@@ -1,0 +1,32 @@
+{
+  "status": "FULL_TESTSET_C_NUMPY_MATCH",
+  "images": 10000,
+  "pooled_values_checked": 1440000,
+  "logits_checked": 100000,
+  "predictions_checked": 10000,
+  "correct": 9711,
+  "accuracy": 0.9711,
+  "undefined_behavior_sanitizer": true,
+  "host_platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "seconds": 2.31,
+  "compiler": [
+    "/usr/bin/cc",
+    "-std=c11",
+    "-O2",
+    "-Wall",
+    "-Wextra",
+    "-Werror",
+    "-I",
+    "/workspace/scratch/6ab87a27468e/cp1-work/full-c-check",
+    "-I",
+    "/workspace/scratch/6ab87a27468e/Croc_CP1_CNN/cnn/reference",
+    "-fsanitize=undefined",
+    "-fno-sanitize-recover=all",
+    "/workspace/scratch/6ab87a27468e/Croc_CP1_CNN/cnn/reference/reference.c",
+    "/workspace/scratch/6ab87a27468e/Croc_CP1_CNN/cnn/reference/host.c",
+    "-o",
+    "/workspace/scratch/6ab87a27468e/cp1-work/full-c-check/cnn_reference"
+  ],
+  "model_sha256": "7a0f4a754fabb3201ed9da1b730d390ff49e4c2d431582f7aa1e2b7294f1a2fc",
+  "hardware_test": false
+}

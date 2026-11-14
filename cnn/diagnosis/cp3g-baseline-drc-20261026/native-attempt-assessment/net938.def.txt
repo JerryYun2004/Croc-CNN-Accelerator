@@ -1,0 +1,98 @@
+    - net938 ( cp3d_fanout_buf_22022203 A ) ( cp3d_fanout_buf_22012202 A ) ( cp3d_fanout_buf_22002201 A ) ( cp3d_fanout_buf_21992200 A ) ( cp3d_fanout_buf_21982199 A ) ( cp3d_fanout_buf_21972198 A ) ( cp3d_fanout_buf_21962197 A )
+      ( cp3d_fanout_buf_21952196 A ) ( i_croc_soc/i_croc/i_core_wrap/_7255_ Y ) + USE SIGNAL
+      + ROUTED Metal3 ( 1292640 1018080 ) ( * 1018500 )
+      NEW Metal2 ( 1416000 1020600 ) ( * 1022280 )
+      NEW Metal2 ( 1304160 1026480 ) ( * 1027320 )
+      NEW Metal3 ( 1304160 1023120 ) ( * 1023960 )
+      NEW Metal2 ( 1304160 1023960 ) ( * 1026480 )
+      NEW Metal2 ( 1240320 1013880 ) ( * 1015980 )
+      NEW Metal2 ( 1239840 1015980 ) ( 1240320 * )
+      NEW Metal3 ( 1239840 1015980 ) ( 1271520 * )
+      NEW Metal4 ( 1271520 1015980 ) ( * 1018500 )
+      NEW Metal3 ( 1271520 1018500 ) ( 1292640 * )
+      NEW Metal3 ( 1304160 1023120 ) ( 1310400 * )
+      NEW Metal2 ( 1347840 1025640 ) ( * 1026480 )
+      NEW Metal2 ( 1314720 1022280 ) ( * 1023540 )
+      NEW Metal3 ( 1314720 1023540 ) ( 1328640 * )
+      NEW Metal2 ( 1328640 1023540 ) ( * 1025220 )
+      NEW Metal3 ( 1328640 1025220 ) ( 1334880 * )
+      NEW Metal3 ( 1334880 1025220 ) ( * 1025640 )
+      NEW Metal3 ( 1334880 1025640 ) ( 1347840 * )
+      NEW Metal3 ( 1310400 1023120 ) ( * 1023540 )
+      NEW Metal3 ( 1310400 1023540 ) ( 1314720 * )
+      NEW Metal4 ( 1312800 1018080 ) ( * 1023540 )
+      NEW Metal3 ( 1292640 1018080 ) ( 1312800 * )
+      NEW Metal2 ( 1319520 1081500 ) ( * 1082760 )
+      NEW Metal3 ( 1319520 1081500 ) ( 1324320 * )
+      NEW Metal4 ( 1324320 1078140 ) ( * 1081500 )
+      NEW Metal2 ( 1319520 1082760 ) ( * 1083180 )
+      NEW Metal3 ( 1364640 1025220 ) ( * 1025640 )
+      NEW Metal4 ( 1404480 1020600 ) ( 1404960 * )
+      NEW Metal3 ( 1347840 1025640 ) ( 1364640 * )
+      NEW Metal3 ( 1404960 1020600 ) ( 1416000 * )
+      NEW Metal2 ( 1308960 1071000 ) ( * 1083180 )
+      NEW Metal3 ( 1304160 1071000 ) ( 1308960 * )
+      NEW Metal2 ( 1307040 1083180 ) ( * 1086960 )
+      NEW Metal3 ( 1307040 1083180 ) ( 1308960 * )
+      NEW Metal4 ( 1304160 1027320 ) ( * 1071000 )
+      NEW Metal3 ( 1308960 1083180 ) ( 1319520 * )
+      NEW Metal4 ( 1404480 1020600 ) ( * 1022400 )
+      NEW Metal3 ( 1380480 1023120 ) ( * 1023540 )
+      NEW Metal3 ( 1380480 1023540 ) ( 1384320 * )
+      NEW Metal3 ( 1384320 1023120 ) ( * 1023540 )
+      NEW Metal3 ( 1384320 1023120 ) ( 1392480 * )
+      NEW Metal3 ( 1392480 1022700 ) ( * 1023120 )
+      NEW Metal3 ( 1392480 1022700 ) ( 1402560 * )
+      NEW Metal3 ( 1402560 1022700 ) ( * 1023120 )
+      NEW Metal3 ( 1402560 1023120 ) ( 1404000 * )
+      NEW Metal4 ( 1404000 1022400 ) ( * 1023120 )
+      NEW Metal4 ( 1404000 1022400 ) ( 1404480 * )
+      NEW Metal2 ( 1332480 1075200 ) ( * 1078140 )
+      NEW Metal3 ( 1324320 1078140 ) ( 1332480 * )
+      NEW Metal3 ( 1375200 1023120 ) ( 1380480 * )
+      NEW Metal4 ( 1370400 1025220 ) ( * 1047900 )
+      NEW Metal3 ( 1370400 1047900 ) ( 1371360 * )
+      NEW Metal2 ( 1371360 1047900 ) ( * 1052520 )
+      NEW Metal2 ( 1370400 1052520 ) ( 1371360 * )
+      NEW Metal3 ( 1375200 1022700 ) ( * 1023120 )
+      NEW Metal3 ( 1370400 1022700 ) ( 1375200 * )
+      NEW Metal4 ( 1370400 1022700 ) ( * 1025220 )
+      NEW Metal3 ( 1364640 1025220 ) ( 1370400 * )
+      NEW Metal2 ( 1416000 1020600 ) Via2_YX
+      NEW Metal1 ( 1416000 1022280 ) Via1_XY
+      NEW Metal1 ( 1304160 1026480 ) Via1_XY
+      NEW Metal2 ( 1304160 1027320 ) Via2_YX
+      NEW Metal3 ( 1304160 1027320 ) Via3_XY
+      NEW Metal2 ( 1304160 1023960 ) Via2_YX
+      NEW Metal1 ( 1240320 1013880 ) Via1_XY
+      NEW Metal2 ( 1239840 1015980 ) Via2_YX
+      NEW Metal3 ( 1271520 1015980 ) Via3_XY
+      NEW Metal3 ( 1271520 1018500 ) Via3_XY
+      NEW Metal1 ( 1347840 1026480 ) Via1_XY
+      NEW Metal2 ( 1347840 1025640 ) Via2_YX
+      NEW Metal1 ( 1314720 1022280 ) Via1_XY
+      NEW Metal2 ( 1314720 1023540 ) Via2_YX
+      NEW Metal2 ( 1328640 1023540 ) Via2_YX
+      NEW Metal2 ( 1328640 1025220 ) Via2_YX
+      NEW Metal3 ( 1312800 1018080 ) Via3_XY
+      NEW Metal3 ( 1312800 1023540 ) Via3_XY
+      NEW Metal1 ( 1319520 1082760 ) Via1_XY
+      NEW Metal2 ( 1319520 1081500 ) Via2_YX
+      NEW Metal3 ( 1324320 1081500 ) Via3_XY
+      NEW Metal3 ( 1324320 1078140 ) Via3_XY
+      NEW Metal2 ( 1319520 1083180 ) Via2_YX
+      NEW Metal3 ( 1404960 1020600 ) Via3_XY
+      NEW Metal2 ( 1308960 1083180 ) Via2_YX
+      NEW Metal2 ( 1308960 1071000 ) Via2_YX
+      NEW Metal3 ( 1304160 1071000 ) Via3_XY
+      NEW Metal1 ( 1307040 1086960 ) Via1_XY
+      NEW Metal2 ( 1307040 1083180 ) Via2_YX
+      NEW Metal3 ( 1404000 1023120 ) Via3_XY
+      NEW Metal2 ( 1332480 1078140 ) Via2_YX
+      NEW Metal1 ( 1332480 1075200 ) Via1_XY
+      NEW Metal3 ( 1370400 1025220 ) Via3_XY
+      NEW Metal3 ( 1370400 1047900 ) Via3_XY
+      NEW Metal2 ( 1371360 1047900 ) Via2_YX
+      NEW Metal1 ( 1370400 1052520 ) Via1_XY
+      NEW Metal3 ( 1370400 1022700 ) Via3_XY
+      NEW Metal3 ( 1304160 1027320 ) RECT ( 0 -100 570 100 )  ;

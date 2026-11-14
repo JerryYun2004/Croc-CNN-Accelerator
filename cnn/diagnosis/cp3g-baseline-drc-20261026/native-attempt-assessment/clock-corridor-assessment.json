@@ -1,0 +1,656 @@
+{
+  "proposal": [
+    [
+      "lower reconnection",
+      [
+        1369275,
+        1050840
+      ],
+      [
+        1370400,
+        1050840
+      ]
+    ],
+    [
+      "west trunk",
+      [
+        1369275,
+        1050840
+      ],
+      [
+        1369275,
+        1053360
+      ]
+    ],
+    [
+      "upper reconnection",
+      [
+        1369275,
+        1053360
+      ],
+      [
+        1370880,
+        1053360
+      ]
+    ]
+  ],
+  "blockers": [
+    {
+      "layer": "'Metal2_VIA;Metal2_ROUTE' (9/0)",
+      "cell": "croc_chip",
+      "net": "cp3d_fanout_net_18231824",
+      "properties": {
+        "net": "cp3d_fanout_net_18231824"
+      },
+      "bbox_dbu": [
+        1369340,
+        1051160,
+        1369540,
+        1059760
+      ],
+      "origin_dbu": [
+        0,
+        0
+      ],
+      "points_dbu": [
+        [
+          1369340,
+          1051160
+        ],
+        [
+          1369340,
+          1059760
+        ],
+        [
+          1369540,
+          1059760
+        ],
+        [
+          1369540,
+          1051160
+        ]
+      ],
+      "proposed_segment": "lower reconnection",
+      "minimum_bbox_clearance_um": 0.22,
+      "required_NDR_spacing_um": 0.56
+    },
+    {
+      "layer": "'Metal2_VIA;Metal2_ROUTE' (9/0)",
+      "cell": "croc_chip",
+      "net": "cp3d_fanout_net_18231824",
+      "properties": {
+        "net": "cp3d_fanout_net_18231824"
+      },
+      "bbox_dbu": [
+        1369340,
+        1051160,
+        1369540,
+        1059760
+      ],
+      "origin_dbu": [
+        0,
+        0
+      ],
+      "points_dbu": [
+        [
+          1369340,
+          1051160
+        ],
+        [
+          1369340,
+          1059760
+        ],
+        [
+          1369540,
+          1059760
+        ],
+        [
+          1369540,
+          1051160
+        ]
+      ],
+      "proposed_segment": "west trunk",
+      "minimum_bbox_clearance_um": 0.0,
+      "required_NDR_spacing_um": 0.56
+    },
+    {
+      "layer": "'Metal2_VIA;Metal2_ROUTE' (9/0)",
+      "cell": "croc_chip",
+      "net": "cp3d_fanout_net_18231824",
+      "properties": {
+        "net": "cp3d_fanout_net_18231824"
+      },
+      "bbox_dbu": [
+        1369340,
+        1051160,
+        1369540,
+        1059760
+      ],
+      "origin_dbu": [
+        0,
+        0
+      ],
+      "points_dbu": [
+        [
+          1369340,
+          1051160
+        ],
+        [
+          1369340,
+          1059760
+        ],
+        [
+          1369540,
+          1059760
+        ],
+        [
+          1369540,
+          1051160
+        ]
+      ],
+      "proposed_segment": "upper reconnection",
+      "minimum_bbox_clearance_um": 0.0,
+      "required_NDR_spacing_um": 0.56
+    },
+    {
+      "layer": "'Metal2_VIA;Metal2_ROUTE' (9/0)",
+      "cell": "croc_chip",
+      "net": "cp3d_fanout_net_22022203",
+      "properties": {
+        "net": "cp3d_fanout_net_22022203"
+      },
+      "bbox_dbu": [
+        1368860,
+        1052840,
+        1369060,
+        1059340
+      ],
+      "origin_dbu": [
+        0,
+        0
+      ],
+      "points_dbu": [
+        [
+          1368860,
+          1052840
+        ],
+        [
+          1368860,
+          1059340
+        ],
+        [
+          1369060,
+          1059340
+        ],
+        [
+          1369060,
+          1052840
+        ]
+      ],
+      "proposed_segment": "west trunk",
+      "minimum_bbox_clearance_um": 0.115,
+      "required_NDR_spacing_um": 0.56
+    },
+    {
+      "layer": "'Metal2_VIA;Metal2_ROUTE' (9/0)",
+      "cell": "croc_chip",
+      "net": "cp3d_fanout_net_22022203",
+      "properties": {
+        "net": "cp3d_fanout_net_22022203"
+      },
+      "bbox_dbu": [
+        1368860,
+        1052840,
+        1369060,
+        1059340
+      ],
+      "origin_dbu": [
+        0,
+        0
+      ],
+      "points_dbu": [
+        [
+          1368860,
+          1052840
+        ],
+        [
+          1368860,
+          1059340
+        ],
+        [
+          1369060,
+          1059340
+        ],
+        [
+          1369060,
+          1052840
+        ]
+      ],
+      "proposed_segment": "upper reconnection",
+      "minimum_bbox_clearance_um": 0.115,
+      "required_NDR_spacing_um": 0.56
+    },
+    {
+      "layer": "'Metal2_VIA;Metal2_ROUTE' (9/0)",
+      "cell": "croc_chip",
+      "net": "cp3d_fanout_net_22022203",
+      "properties": {
+        "net": "cp3d_fanout_net_22022203"
+      },
+      "bbox_dbu": [
+        1368860,
+        1050320,
+        1369060,
+        1053040
+      ],
+      "origin_dbu": [
+        0,
+        0
+      ],
+      "points_dbu": [
+        [
+          1368860,
+          1050320
+        ],
+        [
+          1368860,
+          1053040
+        ],
+        [
+          1369060,
+          1053040
+        ],
+        [
+          1369060,
+          1050320
+        ]
+      ],
+      "proposed_segment": "lower reconnection",
+      "minimum_bbox_clearance_um": 0.115,
+      "required_NDR_spacing_um": 0.56
+    },
+    {
+      "layer": "'Metal2_VIA;Metal2_ROUTE' (9/0)",
+      "cell": "croc_chip",
+      "net": "cp3d_fanout_net_22022203",
+      "properties": {
+        "net": "cp3d_fanout_net_22022203"
+      },
+      "bbox_dbu": [
+        1368860,
+        1050320,
+        1369060,
+        1053040
+      ],
+      "origin_dbu": [
+        0,
+        0
+      ],
+      "points_dbu": [
+        [
+          1368860,
+          1050320
+        ],
+        [
+          1368860,
+          1053040
+        ],
+        [
+          1369060,
+          1053040
+        ],
+        [
+          1369060,
+          1050320
+        ]
+      ],
+      "proposed_segment": "west trunk",
+      "minimum_bbox_clearance_um": 0.115,
+      "required_NDR_spacing_um": 0.56
+    },
+    {
+      "layer": "'Metal2_VIA;Metal2_ROUTE' (9/0)",
+      "cell": "croc_chip",
+      "net": "cp3d_fanout_net_22022203",
+      "properties": {
+        "net": "cp3d_fanout_net_22022203"
+      },
+      "bbox_dbu": [
+        1368860,
+        1050320,
+        1369060,
+        1053040
+      ],
+      "origin_dbu": [
+        0,
+        0
+      ],
+      "points_dbu": [
+        [
+          1368860,
+          1050320
+        ],
+        [
+          1368860,
+          1053040
+        ],
+        [
+          1369060,
+          1053040
+        ],
+        [
+          1369060,
+          1050320
+        ]
+      ],
+      "proposed_segment": "upper reconnection",
+      "minimum_bbox_clearance_um": 0.24824383174612819,
+      "required_NDR_spacing_um": 0.56
+    },
+    {
+      "layer": "'Metal2_VIA;Metal2_ROUTE' (9/0)",
+      "cell": "croc_chip",
+      "net": "cp3d_fanout_net_22022203",
+      "properties": {
+        "net": "cp3d_fanout_net_22022203"
+      },
+      "bbox_dbu": [
+        1368860,
+        1050320,
+        1369540,
+        1050520
+      ],
+      "origin_dbu": [
+        0,
+        0
+      ],
+      "points_dbu": [
+        [
+          1368860,
+          1050320
+        ],
+        [
+          1368860,
+          1050520
+        ],
+        [
+          1369540,
+          1050520
+        ],
+        [
+          1369540,
+          1050320
+        ]
+      ],
+      "proposed_segment": "lower reconnection",
+      "minimum_bbox_clearance_um": 0.22,
+      "required_NDR_spacing_um": 0.56
+    },
+    {
+      "layer": "'Metal2_VIA;Metal2_ROUTE' (9/0)",
+      "cell": "croc_chip",
+      "net": "cp3d_fanout_net_22022203",
+      "properties": {
+        "net": "cp3d_fanout_net_22022203"
+      },
+      "bbox_dbu": [
+        1368860,
+        1050320,
+        1369540,
+        1050520
+      ],
+      "origin_dbu": [
+        0,
+        0
+      ],
+      "points_dbu": [
+        [
+          1368860,
+          1050320
+        ],
+        [
+          1368860,
+          1050520
+        ],
+        [
+          1369540,
+          1050520
+        ],
+        [
+          1369540,
+          1050320
+        ]
+      ],
+      "proposed_segment": "west trunk",
+      "minimum_bbox_clearance_um": 0.22,
+      "required_NDR_spacing_um": 0.56
+    },
+    {
+      "layer": "'Metal2_VIA;Metal2_ROUTE' (9/0)",
+      "cell": "croc_chip",
+      "net": "cp3d_fanout_net_22022203",
+      "properties": {
+        "net": "cp3d_fanout_net_22022203"
+      },
+      "bbox_dbu": [
+        1369340,
+        1047800,
+        1369540,
+        1050520
+      ],
+      "origin_dbu": [
+        0,
+        0
+      ],
+      "points_dbu": [
+        [
+          1369340,
+          1047800
+        ],
+        [
+          1369340,
+          1050520
+        ],
+        [
+          1369540,
+          1050520
+        ],
+        [
+          1369540,
+          1047800
+        ]
+      ],
+      "proposed_segment": "lower reconnection",
+      "minimum_bbox_clearance_um": 0.22,
+      "required_NDR_spacing_um": 0.56
+    },
+    {
+      "layer": "'Metal2_VIA;Metal2_ROUTE' (9/0)",
+      "cell": "croc_chip",
+      "net": "cp3d_fanout_net_22022203",
+      "properties": {
+        "net": "cp3d_fanout_net_22022203"
+      },
+      "bbox_dbu": [
+        1369340,
+        1047800,
+        1369540,
+        1050520
+      ],
+      "origin_dbu": [
+        0,
+        0
+      ],
+      "points_dbu": [
+        [
+          1369340,
+          1047800
+        ],
+        [
+          1369340,
+          1050520
+        ],
+        [
+          1369540,
+          1050520
+        ],
+        [
+          1369540,
+          1047800
+        ]
+      ],
+      "proposed_segment": "west trunk",
+      "minimum_bbox_clearance_um": 0.22,
+      "required_NDR_spacing_um": 0.56
+    },
+    {
+      "layer": "'Metal2_VIA;Metal2_ROUTE' (9/0)",
+      "cell": "VIA_Via1_XY",
+      "net": "cp3d_fanout_net_22022203",
+      "properties": {},
+      "bbox_dbu": [
+        1368860,
+        1052795,
+        1369060,
+        1053085
+      ],
+      "origin_dbu": [
+        1368960,
+        1052940
+      ],
+      "points_dbu": [
+        [
+          1368860,
+          1052795
+        ],
+        [
+          1368860,
+          1053085
+        ],
+        [
+          1369060,
+          1053085
+        ],
+        [
+          1369060,
+          1052795
+        ]
+      ],
+      "proposed_segment": "west trunk",
+      "minimum_bbox_clearance_um": 0.115,
+      "required_NDR_spacing_um": 0.56
+    },
+    {
+      "layer": "'Metal2_VIA;Metal2_ROUTE' (9/0)",
+      "cell": "VIA_Via1_XY",
+      "net": "cp3d_fanout_net_22022203",
+      "properties": {},
+      "bbox_dbu": [
+        1368860,
+        1052795,
+        1369060,
+        1053085
+      ],
+      "origin_dbu": [
+        1368960,
+        1052940
+      ],
+      "points_dbu": [
+        [
+          1368860,
+          1052795
+        ],
+        [
+          1368860,
+          1053085
+        ],
+        [
+          1369060,
+          1053085
+        ],
+        [
+          1369060,
+          1052795
+        ]
+      ],
+      "proposed_segment": "upper reconnection",
+      "minimum_bbox_clearance_um": 0.20940391591371924,
+      "required_NDR_spacing_um": 0.56
+    },
+    {
+      "layer": "'Metal2_VIA;Metal2_ROUTE' (9/0)",
+      "cell": "VIA_Via2_YX",
+      "net": "cp3d_fanout_net_18231824",
+      "properties": {},
+      "bbox_dbu": [
+        1369335,
+        1051115,
+        1369545,
+        1051405
+      ],
+      "origin_dbu": [
+        1369440,
+        1051260
+      ],
+      "points_dbu": [
+        [
+          1369335,
+          1051115
+        ],
+        [
+          1369335,
+          1051405
+        ],
+        [
+          1369545,
+          1051405
+        ],
+        [
+          1369545,
+          1051115
+        ]
+      ],
+      "proposed_segment": "lower reconnection",
+      "minimum_bbox_clearance_um": 0.175,
+      "required_NDR_spacing_um": 0.56
+    },
+    {
+      "layer": "'Metal2_VIA;Metal2_ROUTE' (9/0)",
+      "cell": "VIA_Via2_YX",
+      "net": "cp3d_fanout_net_18231824",
+      "properties": {},
+      "bbox_dbu": [
+        1369335,
+        1051115,
+        1369545,
+        1051405
+      ],
+      "origin_dbu": [
+        1369440,
+        1051260
+      ],
+      "points_dbu": [
+        [
+          1369335,
+          1051115
+        ],
+        [
+          1369335,
+          1051405
+        ],
+        [
+          1369545,
+          1051405
+        ],
+        [
+          1369545,
+          1051115
+        ]
+      ],
+      "proposed_segment": "west trunk",
+      "minimum_bbox_clearance_um": 0.0,
+      "required_NDR_spacing_um": 0.56
+    }
+  ],
+  "note": "Bounding-box clearance is exact for rectangular shapes; polygon confirmation required otherwise. No design edits or DRC execution."
+}

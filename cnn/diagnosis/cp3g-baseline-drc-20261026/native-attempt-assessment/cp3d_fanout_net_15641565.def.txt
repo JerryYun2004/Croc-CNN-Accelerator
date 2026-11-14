@@ -1,0 +1,28 @@
+    - cp3d_fanout_net_15641565 ( i_croc_soc/i_croc/i_core_wrap/_8178_ A ) ( i_croc_soc/i_croc/i_core_wrap/_8137_ A2 ) ( i_croc_soc/i_croc/i_core_wrap/_8123_ A2 ) ( i_croc_soc/i_croc/i_core_wrap/_8120_ A ) ( i_croc_soc/i_croc/i_core_wrap/_8109_ A1 ) ( cp3d_fanout_buf_15641565 X ) + USE SIGNAL
+      + ROUTED Metal2 ( 1212985 893340 ) ( * 893760 )
+      NEW Metal2 ( 1212960 893340 ) ( 1212985 * )
+      NEW Metal3 ( 1203360 893340 ) ( 1212960 * )
+      NEW Metal2 ( 1203360 878640 ) ( * 893340 )
+      NEW Metal2 ( 1202880 878640 ) ( 1203360 * )
+      NEW Metal2 ( 1219680 893340 ) ( * 904260 )
+      NEW Metal3 ( 1212960 893340 ) ( 1219680 * )
+      NEW Metal2 ( 1215360 915180 ) ( * 916440 )
+      NEW Metal3 ( 1215360 915180 ) ( 1219680 * )
+      NEW Metal2 ( 1219680 904260 ) ( * 915180 )
+      NEW Metal2 ( 1210560 915180 ) ( * 916440 )
+      NEW Metal3 ( 1210560 915180 ) ( 1215360 * )
+      NEW Metal2 ( 1224960 915180 ) ( * 916440 )
+      NEW Metal3 ( 1219680 915180 ) ( 1224960 * )
+      NEW Metal1 ( 1212985 893760 ) Via1_XY
+      NEW Metal2 ( 1212960 893340 ) Via2_YX
+      NEW Metal2 ( 1203360 893340 ) Via2_YX
+      NEW Metal1 ( 1202880 878640 ) Via1_YY
+      NEW Metal1 ( 1219680 904260 ) Via1_YY
+      NEW Metal2 ( 1219680 893340 ) Via2_YX
+      NEW Metal1 ( 1215360 916440 ) Via1_XY
+      NEW Metal2 ( 1215360 915180 ) Via2_YX
+      NEW Metal2 ( 1219680 915180 ) Via2_YX
+      NEW Metal1 ( 1210560 916440 ) Via1_YY
+      NEW Metal2 ( 1210560 915180 ) Via2_YX
+      NEW Metal2 ( 1224960 915180 ) Via2_YX
+      NEW Metal1 ( 1224960 916440 ) Via1_YY ;

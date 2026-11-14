@@ -1,0 +1,114 @@
+[
+  {
+    "origin_um": [
+      1367.04,
+      1050.84
+    ],
+    "delta_um": -0.48,
+    "hits": [
+      {
+        "pin": "A",
+        "blocker": {
+          "net": "cp3d_clock_net_55061",
+          "cell": "croc_chip",
+          "box": [
+            1370135,
+            1050740,
+            1370335,
+            1053460
+          ]
+        },
+        "clearance_um": 0.115,
+        "required_um": 0.56
+      }
+    ]
+  },
+  {
+    "origin_um": [
+      1366.56,
+      1050.84
+    ],
+    "delta_um": -0.96,
+    "hits": [
+      {
+        "pin": "A",
+        "blocker": {
+          "net": "cp3d_fanout_net_18231824",
+          "cell": "croc_chip",
+          "box": [
+            1369340,
+            1051160,
+            1369540,
+            1059760
+          ]
+        },
+        "clearance_um": 0.0,
+        "required_um": 0.21
+      }
+    ]
+  },
+  {
+    "origin_um": [
+      1366.08,
+      1050.84
+    ],
+    "delta_um": -1.44,
+    "hits": []
+  },
+  {
+    "origin_um": [
+      1365.6,
+      1050.84
+    ],
+    "delta_um": -1.92,
+    "hits": []
+  },
+  {
+    "origin_um": [
+      1365.12,
+      1050.84
+    ],
+    "delta_um": -2.4,
+    "hits": [
+      {
+        "pin": "X",
+        "blocker": {
+          "net": "cp3d_fanout_net_18351836",
+          "cell": "croc_chip",
+          "box": [
+            1366460,
+            1026380,
+            1366660,
+            1073200
+          ]
+        },
+        "clearance_um": 0.0,
+        "required_um": 0.21
+      }
+    ]
+  },
+  {
+    "origin_um": [
+      1364.64,
+      1050.84
+    ],
+    "delta_um": -2.88,
+    "hits": [
+      {
+        "pin": "X",
+        "blocker": {
+          "net": "cp3d_fanout_net_18491850",
+          "cell": "croc_chip",
+          "box": [
+            1365980,
+            1043180,
+            1366180,
+            1081180
+          ]
+        },
+        "clearance_um": 0.0,
+        "required_um": 0.21
+      }
+    ]
+  }
+]

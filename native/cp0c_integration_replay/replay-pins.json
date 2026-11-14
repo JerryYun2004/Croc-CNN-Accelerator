@@ -1,0 +1,33 @@
+{
+  "version": "1.1-structural-guidance",
+  "source_run": "cp0c-integration-20261022-151505-fa05juic",
+  "files": {
+    "provenance.json": "3f642c5795a535f8027a4a4801af560c9106c531177c5b076616c5265f3fb138",
+    "reports/preservation.json": "885758c54985f6408472006de9dd25fac0cee35f6fd58850e444e1fbb464f00c",
+    "reports/reference-parser.json": "98db75e1640912a2cdcc8973c6f6b74c4b843da9ee3d54cfdf4129725bf28852",
+    "input/gds-preservation.json": "acb062975d39c8228170c24fd9a59fe1cbfccfe411c965d8acd48feb83612020",
+    "input/reference-annotations.json": "075325177c0a7c7a092d3378329d8b7fcefcb3d49a54b0c9cc37e14ff0f5adf3",
+    "full/aligned-inventory.json": "d5c72b9cc6e2b04d649373128d100c1baba672a96da98c2c72dbb6b58396d80d",
+    "full/fresh-boundaries.json": "6403761aae4fa1cc5e0441a792351e503cb467b4808fe05a2b552ff2286b16e5",
+    "full/io-reduction.json": "a4007dd800b075b616b3ddb12eeee3ed84511b59eb952a829f997b0c0468f261",
+    "full/extraction.json": "704d09cb90bfa4280db4d381acc0913abd76cd3664a987e7a9297faff8dc90a5",
+    "full/extraction-errors.json": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+    "full/prepared-inventory.json": "0d8b552450b90b8291cdfe63ca6312422bd9bdff451bfd69e2366d91096cc9f9",
+    "full/switches.json": "eb74e35da0d2a33dce408bc829ee4968cad926d1f08a24f4d394c7777d44c50e",
+    "helpers/cp0c-integration-pins.json": "0a759cff4f26d0c287c1c8927d4112b24a783ecdd6cdb212581d4e3a0b9371f0"
+  },
+  "prepared_sha256": "e85425431cefe953db1dcda15c392987a9a6183aa4ebc7a5cf795b9e34e3d615",
+  "physical_files": {
+    "out/croc.gds.gz": "1fa08faf0b32ca596586c525b8a1533029953502ae0914828a24c6de1c250a7a",
+    "out/croc.sealed.gds.gz": "04d627f48e38b1d31d9eb94729360fc06af30c2ab730236a08c3954007ccab40",
+    "out/croc_sram_power.odb": "a677d2a48c8d3e39a0a4c104582cf36124184b3ee01142be0210df189f6b9525"
+  },
+  "acceptance_files": {
+    "cp0c-internal-close-20261019-153233-hs8ve5s7/replay/reports/final.tsv": "7017ecc1e991aee676a75473e55d9d1c0e35c763974fc2bb96f366f1fd4765ec",
+    "cp0c-internal-close-20261019-153233-hs8ve5s7/replay/reports/audit.tsv": "7a11d771284a970192961ff7d2ee1bc2f1acf7bd23fdc5b971d981fb5ab56ce0",
+    "cp0c-internal-close-20261019-153233-hs8ve5s7/replay/reports/classified.tsv": "364d72f952fdd367ad23586f421053a045d9f4dc3948c19a394808ef108a2cca",
+    "cp0c-sram-power-20261020-233953-4p5z8tr1/reports/drc-summary.json": "4b91084442e766cb8e00934661df6cae51df62280c98736b676b6ea897a78011",
+    "cp0c-sram-power-20261020-233953-4p5z8tr1/reports/drc-switches.json": "bd4cc96eff516e33f803d773962bc3b4be8951c278ee6f0b3a0764d279a7326b",
+    "cp0c-sram-power-20261020-233953-4p5z8tr1/reports/result.json": "995cc03a4bee4cabe918667cb2acf067398366581f63fcc9080108830c528e50"
+  }
+}

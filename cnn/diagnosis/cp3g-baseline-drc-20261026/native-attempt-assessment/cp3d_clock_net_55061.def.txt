@@ -1,0 +1,120 @@
+    - cp3d_clock_net_55061 ( clkbuf_6_47_0_soc_clk_i_regs A ) ( clkbuf_6_46_0_soc_clk_i_regs A ) ( clkbuf_6_45_0_soc_clk_i_regs A ) ( clkbuf_6_44_0_soc_clk_i_regs A ) ( clkbuf_6_43_0_soc_clk_i_regs A ) ( clkbuf_6_42_0_soc_clk_i_regs A ) ( clkbuf_6_41_0_soc_clk_i_regs A )
+      ( clkbuf_6_40_0_soc_clk_i_regs A ) ( cp3d_clock_55061 X ) + USE CLOCK + NONDEFAULTRULE CTS_NDR_0
+      + ROUTED Metal2 ( 1386720 1001700 ) ( * 1004640 )
+      NEW Metal2 TAPER ( 1386720 1004640 ) ( * 1007160 )
+      NEW Metal2 ( 1480800 975240 ) ( * 1000860 )
+      NEW Metal2 ( 1480800 975240 ) ( 1482720 * )
+      NEW Metal2 ( 1479840 1004640 ) ( 1480320 * )
+      NEW Metal2 ( 1479840 1000860 ) ( * 1004640 )
+      NEW Metal2 ( 1219200 1026480 ) ( * 1031100 )
+      NEW Metal2 ( 1217280 1031100 ) ( 1219200 * )
+      NEW Metal2 ( 1217280 1031100 ) ( * 1035720 )
+      NEW Metal2 TAPER ( 1217280 1035720 ) ( * 1037400 )
+      NEW Metal2 TAPER ( 1413600 928200 ) ( * 930300 )
+      NEW Metal2 ( 1413600 930300 ) ( * 930720 )
+      NEW Metal4 ( 1482720 963900 ) ( * 966420 )
+      NEW Metal3 ( 1479360 963900 ) ( 1482720 * )
+      NEW Metal2 ( 1479360 950040 ) ( * 963900 )
+      NEW Metal2 ( 1479360 950040 ) ( 1479840 * )
+      NEW Metal2 TAPER ( 1479840 939120 ) ( * 941220 )
+      NEW Metal2 ( 1479840 941220 ) ( * 950040 )
+      NEW Metal2 TAPER ( 1479840 939120 ) ( 1480800 * )
+      NEW Metal2 ( 1482720 966420 ) ( * 975240 )
+      NEW Metal2 TAPER ( 1521120 1033200 ) ( * 1034040 )
+      NEW Metal3 ( 1480320 1033200 ) ( 1521120 * )
+      NEW Metal2 TAPER ( 1512960 1049160 ) ( 1514715 * )
+      NEW Metal2 ( 1514715 1049160 ) ( 1514880 * )
+      NEW Metal2 ( 1514880 1041180 ) ( * 1049160 )
+      NEW Metal2 ( 1514400 1041180 ) ( 1514880 * )
+      NEW Metal2 ( 1514400 1036560 ) ( * 1041180 )
+      NEW Metal2 ( 1513440 1036560 ) ( 1514400 * )
+      NEW Metal2 ( 1513440 1033200 ) ( * 1036560 )
+      NEW Metal2 ( 1480320 1004640 ) ( * 1033200 )
+      NEW Metal2 ( 1241280 1009260 ) ( * 1013040 )
+      NEW Metal2 ( 1241280 1009260 ) ( 1243200 * )
+      NEW Metal3 ( 1219200 1026480 ) ( 1241280 * )
+      NEW Metal4 ( 1241280 1013040 ) ( * 1026480 )
+      NEW Metal2 TAPER ( 1343520 1026480 ) ( * 1028280 )
+      NEW Metal2 ( 1343520 1028280 ) ( * 1029420 )
+      NEW Metal3 ( 1241280 1026480 ) ( 1343520 * )
+      NEW Metal2 ( 1243200 1008000 ) ( * 1009260 )
+      NEW Metal3 ( 1243200 1008000 ) ( 1244640 * )
+      NEW Metal4 ( 1244640 1006740 ) ( * 1008000 )
+      NEW Metal4 ( 1244640 1006740 ) ( 1246080 * )
+      NEW Metal4 ( 1246080 975660 ) ( * 1006740 )
+      NEW Metal3 ( 1242720 975660 ) ( 1246080 * )
+      NEW Metal2 TAPER ( 1242720 975660 ) ( * 976920 )
+      NEW Metal2 TAPER ( 1241760 976920 ) ( 1242720 * )
+      NEW Metal3 ( 1421760 1000860 ) ( * 1001700 )
+      NEW Metal2 ( 1413600 967680 ) ( * 974820 )
+      NEW Metal2 ( 1413600 974820 ) ( 1415040 * )
+      NEW Metal2 ( 1415040 974820 ) ( * 992460 )
+      NEW Metal2 ( 1414560 992460 ) ( 1415040 * )
+      NEW Metal2 ( 1414560 992460 ) ( * 1001700 )
+      NEW Metal3 ( 1386720 1001700 ) ( 1421760 * )
+      NEW Metal4 ( 1413600 930720 ) ( * 967680 )
+      NEW Metal3 ( 1421760 1000860 ) ( 1480800 * )
+      NEW Metal3 ( 1384320 1013880 ) ( 1385280 * )
+      NEW Metal2 TAPER ( 1385280 1008420 ) ( * 1010520 )
+      NEW Metal2 ( 1385280 1010520 ) ( * 1013880 )
+      NEW Metal4 ( 1384320 1013880 ) ( * 1029420 )
+      NEW Metal2 ( 1373280 1029420 ) ( * 1030680 )
+      NEW Metal2 ( 1371840 1030680 ) ( 1373280 * )
+      NEW Metal2 ( 1371840 1030680 ) ( * 1047060 )
+      NEW Metal2 ( 1370400 1047060 ) ( 1371840 * )
+      NEW Metal2 ( 1370400 1047060 ) ( * 1050840 )
+      NEW Metal2 ( 1370235 1050840 ) ( 1370400 * )
+      NEW Metal2 ( 1370235 1050840 ) ( * 1053360 )
+      NEW Metal2 ( 1370235 1053360 ) ( 1370880 * )
+      NEW Metal2 ( 1370880 1053360 ) ( * 1057140 )
+      NEW Metal2 ( 1370880 1057140 ) ( 1371360 * )
+      NEW Metal2 ( 1371360 1057140 ) ( * 1071420 )
+      NEW Metal2 ( 1370880 1071420 ) ( 1371360 * )
+      NEW Metal2 ( 1370880 1071420 ) ( * 1077720 )
+      NEW Metal2 TAPER ( 1370880 1077720 ) ( * 1079400 )
+      NEW Metal2 TAPER ( 1369920 1079400 ) ( 1370880 * )
+      NEW Metal3 ( 1343520 1029420 ) ( 1373280 * )
+      NEW Metal3 ( 1373280 1029420 ) ( 1384320 * )
+      NEW Metal2 ( 1386720 1001700 ) Via2_YX
+      NEW Metal1 TAPER ( 1386720 1007160 ) Via1_XY
+      NEW Metal2 ( 1480800 1000860 ) Via2_YX
+      NEW Metal2 ( 1479840 1000860 ) Via2_YX
+      NEW Metal2 ( 1219200 1026480 ) Via2_YX
+      NEW Metal1 TAPER ( 1217280 1037400 ) Via1_XY
+      NEW Metal2 ( 1413600 930720 ) Via2_YX
+      NEW Metal3 ( 1413600 930720 ) Via3_XY
+      NEW Metal1 TAPER ( 1413600 928200 ) Via1_XY
+      NEW Metal2 ( 1482720 966420 ) Via2_YX
+      NEW Metal3 ( 1482720 966420 ) Via3_XY
+      NEW Metal3 ( 1482720 963900 ) Via3_XY
+      NEW Metal2 ( 1479360 963900 ) Via2_YX
+      NEW Metal1 TAPER ( 1480800 939120 ) Via1_XY
+      NEW Metal1 TAPER ( 1521120 1034040 ) Via1_XY
+      NEW Metal2 TAPER ( 1521120 1033200 ) Via2_YX
+      NEW Metal2 ( 1480320 1033200 ) Via2_YX
+      NEW Metal1 TAPER ( 1512960 1049160 ) Via1_XY
+      NEW Metal2 ( 1513440 1033200 ) Via2_YX
+      NEW Metal2 ( 1241280 1013040 ) Via2_YX
+      NEW Metal3 ( 1241280 1013040 ) Via3_XY
+      NEW Metal3 ( 1241280 1026480 ) Via3_XY
+      NEW Metal1 TAPER ( 1343520 1026480 ) Via1_XY
+      NEW Metal2 ( 1343520 1029420 ) Via2_YX
+      NEW Metal2 TAPER ( 1343520 1026480 ) Via2_YX
+      NEW Metal2 ( 1243200 1008000 ) Via2_YX
+      NEW Metal3 ( 1244640 1008000 ) Via3_XY
+      NEW Metal3 ( 1246080 975660 ) Via3_XY
+      NEW Metal2 TAPER ( 1242720 975660 ) Via2_YX
+      NEW Metal1 TAPER ( 1241760 976920 ) Via1_XY
+      NEW Metal2 ( 1413600 967680 ) Via2_YX
+      NEW Metal3 ( 1413600 967680 ) Via3_XY
+      NEW Metal2 ( 1414560 1001700 ) Via2_YX
+      NEW Metal3 ( 1384320 1013880 ) Via3_XY
+      NEW Metal2 ( 1385280 1013880 ) Via2_YX
+      NEW Metal1 TAPER ( 1385280 1008420 ) Via1_YY
+      NEW Metal3 ( 1384320 1029420 ) Via3_XY
+      NEW Metal2 ( 1373280 1029420 ) Via2_YX
+      NEW Metal1 TAPER ( 1369920 1079400 ) Via1_XY
+      NEW Metal3 TAPER ( 1413600 930720 ) RECT ( -570 -100 0 100 ) 
+      NEW Metal3 TAPER ( 1482720 966420 ) RECT ( -570 -100 0 100 ) 
+      NEW Metal3 TAPER ( 1241280 1013040 ) RECT ( -570 -100 0 100 ) 
+      NEW Metal3 TAPER ( 1413600 967680 ) RECT ( -570 -100 0 100 )  ;

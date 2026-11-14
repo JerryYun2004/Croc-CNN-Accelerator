@@ -1,0 +1,481 @@
+{
+  "status": "NoMatch",
+  "layout": {
+    "name": "RSC_IHPSG13_CDLYX1_DUMMY",
+    "cell_index": 528,
+    "pins": [
+      {
+        "id": 0,
+        "name": "",
+        "net": {
+          "name": "$1",
+          "expanded_name": "$1",
+          "cluster_id": 1
+        }
+      },
+      {
+        "id": 1,
+        "name": "",
+        "net": {
+          "name": "$3",
+          "expanded_name": "$3",
+          "cluster_id": 3
+        }
+      },
+      {
+        "id": 2,
+        "name": "Z",
+        "net": {
+          "name": "Z",
+          "expanded_name": "Z",
+          "cluster_id": 5
+        }
+      },
+      {
+        "id": 3,
+        "name": "A",
+        "net": {
+          "name": "A",
+          "expanded_name": "A",
+          "cluster_id": 6
+        }
+      }
+    ],
+    "devices": 3,
+    "devices_by_model": {
+      "res_metal1": 1,
+      "sg13_lv_nmos": 1,
+      "sg13_lv_pmos": 1
+    },
+    "subcircuits": 0,
+    "children": {},
+    "device_inventory": [
+      {
+        "id": 1,
+        "name": "",
+        "expanded_name": "$1",
+        "model": "sg13_lv_nmos",
+        "parameters": {
+          "L": 0.30000000000000004,
+          "W": 2.49,
+          "AS": 0.5976,
+          "AD": 0.5976,
+          "PS": 4.76,
+          "PD": 4.76,
+          "rfmode": 0.0
+        },
+        "terminals": {
+          "S": {
+            "name": "$4",
+            "expanded_name": "$4",
+            "cluster_id": 4
+          },
+          "G": {
+            "name": "$2",
+            "expanded_name": "$2",
+            "cluster_id": 2
+          },
+          "D": {
+            "name": "$3",
+            "expanded_name": "$3",
+            "cluster_id": 3
+          },
+          "B": {
+            "name": "$3",
+            "expanded_name": "$3",
+            "cluster_id": 3
+          }
+        }
+      },
+      {
+        "id": 2,
+        "name": "",
+        "expanded_name": "$2",
+        "model": "sg13_lv_pmos",
+        "parameters": {
+          "L": 0.64,
+          "W": 3.24,
+          "AS": 0.8586,
+          "AD": 0.8586,
+          "PS": 5.92,
+          "PD": 5.92,
+          "rfmode": 0.0
+        },
+        "terminals": {
+          "S": {
+            "name": "$1",
+            "expanded_name": "$1",
+            "cluster_id": 1
+          },
+          "G": {
+            "name": "$4",
+            "expanded_name": "$4",
+            "cluster_id": 4
+          },
+          "D": {
+            "name": "$2",
+            "expanded_name": "$2",
+            "cluster_id": 2
+          },
+          "B": {
+            "name": "$1",
+            "expanded_name": "$1",
+            "cluster_id": 1
+          }
+        }
+      },
+      {
+        "id": 3,
+        "name": "",
+        "expanded_name": "$3",
+        "model": "res_metal1",
+        "parameters": {
+          "R": 0.253846153846,
+          "L": 0.6000000000000001,
+          "W": 0.26,
+          "A": 0.156,
+          "P": 1.72
+        },
+        "terminals": {
+          "A": {
+            "name": "A",
+            "expanded_name": "A",
+            "cluster_id": 6
+          },
+          "B": {
+            "name": "Z",
+            "expanded_name": "Z",
+            "cluster_id": 5
+          }
+        }
+      }
+    ],
+    "subcircuit_inventory": [],
+    "device_inventory_truncated": false,
+    "subcircuit_inventory_truncated": false
+  },
+  "reference": {
+    "name": "RSC_IHPSG13_CDLYX1_DUMMY",
+    "cell_index": 0,
+    "pins": [
+      {
+        "id": 0,
+        "name": "A",
+        "net": {
+          "name": "A",
+          "expanded_name": "A",
+          "cluster_id": 0
+        }
+      },
+      {
+        "id": 1,
+        "name": "Z",
+        "net": {
+          "name": "Z",
+          "expanded_name": "Z",
+          "cluster_id": 0
+        }
+      },
+      {
+        "id": 2,
+        "name": "VDD",
+        "net": {
+          "name": "VDD",
+          "expanded_name": "VDD",
+          "cluster_id": 0
+        }
+      },
+      {
+        "id": 3,
+        "name": "VSS",
+        "net": {
+          "name": "VSS",
+          "expanded_name": "VSS",
+          "cluster_id": 0
+        }
+      }
+    ],
+    "devices": 3,
+    "devices_by_model": {
+      "LVSRES": 1,
+      "sg13_lv_nmos": 1,
+      "sg13_lv_pmos": 1
+    },
+    "subcircuits": 0,
+    "children": {},
+    "device_inventory": [
+      {
+        "id": 1,
+        "name": "N0",
+        "expanded_name": "N0",
+        "model": "sg13_lv_nmos",
+        "parameters": {
+          "L": 0.30000000000000004,
+          "W": 2.49,
+          "AS": 0.0,
+          "AD": 0.0,
+          "PS": 0.0,
+          "PD": 0.0,
+          "rfmode": 0.0
+        },
+        "terminals": {
+          "S": {
+            "name": "VSS",
+            "expanded_name": "VSS",
+            "cluster_id": 0
+          },
+          "G": {
+            "name": "VDD_R",
+            "expanded_name": "VDD_R",
+            "cluster_id": 0
+          },
+          "D": {
+            "name": "VSS_R",
+            "expanded_name": "VSS_R",
+            "cluster_id": 0
+          },
+          "B": {
+            "name": "VSS",
+            "expanded_name": "VSS",
+            "cluster_id": 0
+          }
+        }
+      },
+      {
+        "id": 2,
+        "name": "P0",
+        "expanded_name": "P0",
+        "model": "sg13_lv_pmos",
+        "parameters": {
+          "L": 0.64,
+          "W": 3.24,
+          "AS": 0.0,
+          "AD": 0.0,
+          "PS": 0.0,
+          "PD": 0.0,
+          "rfmode": 0.0
+        },
+        "terminals": {
+          "S": {
+            "name": "VDD",
+            "expanded_name": "VDD",
+            "cluster_id": 0
+          },
+          "G": {
+            "name": "VSS_R",
+            "expanded_name": "VSS_R",
+            "cluster_id": 0
+          },
+          "D": {
+            "name": "VDD_R",
+            "expanded_name": "VDD_R",
+            "cluster_id": 0
+          },
+          "B": {
+            "name": "VDD",
+            "expanded_name": "VDD",
+            "cluster_id": 0
+          }
+        }
+      },
+      {
+        "id": 3,
+        "name": "0",
+        "expanded_name": "0",
+        "model": "LVSRES",
+        "parameters": {
+          "R": 0.0,
+          "L": 0.6000000000000001,
+          "W": 0.26,
+          "A": 0.0,
+          "P": 0.0
+        },
+        "terminals": {
+          "A": {
+            "name": "Z",
+            "expanded_name": "Z",
+            "cluster_id": 0
+          },
+          "B": {
+            "name": "A",
+            "expanded_name": "A",
+            "cluster_id": 0
+          }
+        }
+      }
+    ],
+    "subcircuit_inventory": [],
+    "device_inventory_truncated": false,
+    "subcircuit_inventory_truncated": false
+  },
+  "pair_status_counts": {
+    "net": {
+      "Match": 4,
+      "Mismatch": 4
+    },
+    "pin": {
+      "Match": 2,
+      "Mismatch": 4
+    },
+    "device": {
+      "Match": 2,
+      "Mismatch": 2
+    },
+    "subcircuit": {}
+  },
+  "mismatch_samples": {
+    "net": [
+      {
+        "status": "Mismatch",
+        "layout": null,
+        "reference": {
+          "name": "A",
+          "expanded_name": "A",
+          "cluster_id": 0
+        }
+      },
+      {
+        "status": "Mismatch",
+        "layout": null,
+        "reference": {
+          "name": "Z",
+          "expanded_name": "Z",
+          "cluster_id": 0
+        }
+      },
+      {
+        "status": "Mismatch",
+        "layout": {
+          "name": "A",
+          "expanded_name": "A",
+          "cluster_id": 6
+        },
+        "reference": null
+      },
+      {
+        "status": "Mismatch",
+        "layout": {
+          "name": "Z",
+          "expanded_name": "Z",
+          "cluster_id": 5
+        },
+        "reference": null
+      }
+    ],
+    "pin": [
+      {
+        "status": "Mismatch",
+        "layout": null,
+        "reference": {
+          "id": 0,
+          "name": "A",
+          "net": {
+            "name": "A",
+            "expanded_name": "A",
+            "cluster_id": 0
+          }
+        }
+      },
+      {
+        "status": "Mismatch",
+        "layout": null,
+        "reference": {
+          "id": 1,
+          "name": "Z",
+          "net": {
+            "name": "Z",
+            "expanded_name": "Z",
+            "cluster_id": 0
+          }
+        }
+      },
+      {
+        "status": "Mismatch",
+        "layout": {
+          "id": 3,
+          "name": "A",
+          "net": {
+            "name": "A",
+            "expanded_name": "A",
+            "cluster_id": 6
+          }
+        },
+        "reference": null
+      },
+      {
+        "status": "Mismatch",
+        "layout": {
+          "id": 2,
+          "name": "Z",
+          "net": {
+            "name": "Z",
+            "expanded_name": "Z",
+            "cluster_id": 5
+          }
+        },
+        "reference": null
+      }
+    ],
+    "device": [
+      {
+        "status": "Mismatch",
+        "layout": null,
+        "reference": {
+          "id": 3,
+          "name": "0",
+          "expanded_name": "0",
+          "model": "LVSRES",
+          "parameters": {
+            "R": 0.0,
+            "L": 0.6000000000000001,
+            "W": 0.26,
+            "A": 0.0,
+            "P": 0.0
+          },
+          "terminals": {
+            "A": {
+              "name": "Z",
+              "expanded_name": "Z",
+              "cluster_id": 0
+            },
+            "B": {
+              "name": "A",
+              "expanded_name": "A",
+              "cluster_id": 0
+            }
+          }
+        }
+      },
+      {
+        "status": "Mismatch",
+        "layout": {
+          "id": 3,
+          "name": "",
+          "expanded_name": "$3",
+          "model": "res_metal1",
+          "parameters": {
+            "R": 0.253846153846,
+            "L": 0.6000000000000001,
+            "W": 0.26,
+            "A": 0.156,
+            "P": 1.72
+          },
+          "terminals": {
+            "A": {
+              "name": "A",
+              "expanded_name": "A",
+              "cluster_id": 6
+            },
+            "B": {
+              "name": "Z",
+              "expanded_name": "Z",
+              "cluster_id": 5
+            }
+          }
+        },
+        "reference": null
+      }
+    ],
+    "subcircuit": []
+  }
+}

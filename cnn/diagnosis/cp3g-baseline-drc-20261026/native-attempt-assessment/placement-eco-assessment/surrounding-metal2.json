@@ -1,0 +1,802 @@
+[
+  {
+    "net": "i_croc_soc/i_croc/i_core_wrap/i_core.exc_cause_1_",
+    "cell": "croc_chip",
+    "box": [
+      1373180,
+      1034360,
+      1373380,
+      1051360
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_18351836",
+    "cell": "croc_chip",
+    "box": [
+      1366460,
+      1026380,
+      1366660,
+      1073200
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_18491850",
+    "cell": "croc_chip",
+    "box": [
+      1365980,
+      1043180,
+      1366180,
+      1081180
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_18651866",
+    "cell": "croc_chip",
+    "box": [
+      1364060,
+      1042340,
+      1364260,
+      1049680
+    ]
+  },
+  {
+    "net": "clknet_leaf_297_soc_clk_i_regs",
+    "cell": "croc_chip",
+    "box": [
+      1366940,
+      1041080,
+      1367140,
+      1049260
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_18591860",
+    "cell": "croc_chip",
+    "box": [
+      1365020,
+      1050740,
+      1365220,
+      1083700
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_18651866",
+    "cell": "croc_chip",
+    "box": [
+      1364540,
+      1049480,
+      1364740,
+      1090000
+    ]
+  },
+  {
+    "net": "cp3d_clock_net_55061",
+    "cell": "croc_chip",
+    "box": [
+      1370780,
+      1053260,
+      1370980,
+      1057240
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_18231824",
+    "cell": "croc_chip",
+    "box": [
+      1369340,
+      1051160,
+      1369540,
+      1059760
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_22022203",
+    "cell": "croc_chip",
+    "box": [
+      1368860,
+      1052840,
+      1369060,
+      1059340
+    ]
+  },
+  {
+    "net": "i_croc_soc/i_croc/i_core_wrap/i_core.cs_registers_i/mstack_epc_q_1_",
+    "cell": "croc_chip",
+    "box": [
+      1365500,
+      1053680,
+      1365700,
+      1063120
+    ]
+  },
+  {
+    "net": "clknet_leaf_297_soc_clk_i_regs",
+    "cell": "croc_chip",
+    "box": [
+      1366940,
+      1049060,
+      1369060,
+      1049260
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_47264727",
+    "cell": "croc_chip",
+    "box": [
+      1365500,
+      1049900,
+      1365715,
+      1050100
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_18651866",
+    "cell": "croc_chip",
+    "box": [
+      1364060,
+      1049480,
+      1364740,
+      1049680
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_18511852",
+    "cell": "croc_chip",
+    "box": [
+      1362620,
+      1054940,
+      1363300,
+      1055140
+    ]
+  },
+  {
+    "net": "i_croc_soc/i_croc/i_core_wrap/i_core.cs_registers_i/_1621_",
+    "cell": "croc_chip",
+    "box": [
+      1362140,
+      1054100,
+      1364260,
+      1054300
+    ]
+  },
+  {
+    "net": "i_croc_soc/i_croc/i_core_wrap/i_core.cs_registers_i/_1621_",
+    "cell": "croc_chip",
+    "box": [
+      1364060,
+      1051580,
+      1364260,
+      1054300
+    ]
+  },
+  {
+    "net": "i_croc_soc/i_croc/i_core_wrap/i_core.cs_registers_i/_1621_",
+    "cell": "croc_chip",
+    "box": [
+      1363580,
+      1051580,
+      1364260,
+      1051780
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_47264727",
+    "cell": "croc_chip",
+    "box": [
+      1365515,
+      1049060,
+      1365715,
+      1050100
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_47264727",
+    "cell": "croc_chip",
+    "box": [
+      1365020,
+      1049060,
+      1365715,
+      1049260
+    ]
+  },
+  {
+    "net": "net805",
+    "cell": "croc_chip",
+    "box": [
+      1363100,
+      1048220,
+      1363300,
+      1050100
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_47264727",
+    "cell": "croc_chip",
+    "box": [
+      1365020,
+      1048640,
+      1365220,
+      1049260
+    ]
+  },
+  {
+    "net": "i_croc_soc/i_croc/i_core_wrap/i_core.cs_registers_i/_1064_",
+    "cell": "croc_chip",
+    "box": [
+      1363100,
+      1050740,
+      1363300,
+      1052620
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_18991900",
+    "cell": "croc_chip",
+    "box": [
+      1363580,
+      1052420,
+      1363805,
+      1052620
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_47264727",
+    "cell": "croc_chip",
+    "box": [
+      1364540,
+      1048640,
+      1364740,
+      1049080
+    ]
+  },
+  {
+    "net": "cp3d_clock_net_55061",
+    "cell": "croc_chip",
+    "box": [
+      1370135,
+      1050740,
+      1370500,
+      1050940
+    ]
+  },
+  {
+    "net": "cp3d_clock_net_55061",
+    "cell": "croc_chip",
+    "box": [
+      1370135,
+      1053260,
+      1370980,
+      1053460
+    ]
+  },
+  {
+    "net": "net938",
+    "cell": "croc_chip",
+    "box": [
+      1371260,
+      1047800,
+      1371460,
+      1052620
+    ]
+  },
+  {
+    "net": "i_croc_soc/i_croc/i_core_wrap/i_core.cs_registers_i/_1620_",
+    "cell": "croc_chip",
+    "box": [
+      1371740,
+      1052000,
+      1371940,
+      1052620
+    ]
+  },
+  {
+    "net": "net938",
+    "cell": "croc_chip",
+    "box": [
+      1370300,
+      1052420,
+      1371460,
+      1052620
+    ]
+  },
+  {
+    "net": "i_croc_soc/i_croc/i_core_wrap/i_core.crash_dump_o_3_",
+    "cell": "croc_chip",
+    "box": [
+      1372220,
+      1047800,
+      1372420,
+      1049680
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_18991900",
+    "cell": "croc_chip",
+    "box": [
+      1373660,
+      1046120,
+      1373860,
+      1049260
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_18991900",
+    "cell": "croc_chip",
+    "box": [
+      1373660,
+      1050740,
+      1374620,
+      1050940
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_18991900",
+    "cell": "croc_chip",
+    "box": [
+      1373660,
+      1049060,
+      1373860,
+      1050940
+    ]
+  },
+  {
+    "net": "i_croc_soc/i_croc/i_core_wrap/i_core.exc_cause_1_",
+    "cell": "croc_chip",
+    "box": [
+      1373180,
+      1051160,
+      1373880,
+      1051360
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_19101911",
+    "cell": "croc_chip",
+    "box": [
+      1373180,
+      1052415,
+      1373380,
+      1052620
+    ]
+  },
+  {
+    "net": "i_croc_soc/i_croc/i_core_wrap/i_core.exc_cause_1_",
+    "cell": "croc_chip",
+    "box": [
+      1373680,
+      1051160,
+      1373880,
+      1051780
+    ]
+  },
+  {
+    "net": "i_croc_soc/i_croc/i_core_wrap/i_core.exc_cause_1_",
+    "cell": "croc_chip",
+    "box": [
+      1373660,
+      1051580,
+      1373880,
+      1051780
+    ]
+  },
+  {
+    "net": "i_croc_soc/i_croc/i_core_wrap/i_core.exc_cause_1_",
+    "cell": "croc_chip",
+    "box": [
+      1373660,
+      1051580,
+      1373860,
+      1052410
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_22022203",
+    "cell": "croc_chip",
+    "box": [
+      1368860,
+      1050320,
+      1369060,
+      1053040
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_22022203",
+    "cell": "croc_chip",
+    "box": [
+      1368860,
+      1050320,
+      1369540,
+      1050520
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_22022203",
+    "cell": "croc_chip",
+    "box": [
+      1369340,
+      1047800,
+      1369540,
+      1050520
+    ]
+  },
+  {
+    "net": "i_croc_soc/i_croc/i_core_wrap/i_core.cs_registers_i/_1976_",
+    "cell": "croc_chip",
+    "box": [
+      1371740,
+      1053680,
+      1371940,
+      1056400
+    ]
+  },
+  {
+    "net": "i_croc_soc/i_croc/i_core_wrap/i_core.cs_registers_i/_1977_",
+    "cell": "croc_chip",
+    "box": [
+      1373180,
+      1053680,
+      1373380,
+      1056820
+    ]
+  },
+  {
+    "net": "cp3d_clock_net_55061",
+    "cell": "croc_chip",
+    "box": [
+      1370300,
+      1046960,
+      1370500,
+      1050940
+    ]
+  },
+  {
+    "net": "cp3d_clock_net_55061",
+    "cell": "croc_chip",
+    "box": [
+      1370135,
+      1050740,
+      1370335,
+      1053460
+    ]
+  },
+  {
+    "net": "i_croc_soc/i_croc/i_core_wrap/i_core.cs_registers_i/_1620_",
+    "cell": "croc_chip",
+    "box": [
+      1371725,
+      1052000,
+      1371940,
+      1052200
+    ]
+  },
+  {
+    "net": "i_croc_soc/i_croc/i_core_wrap/i_core.cs_registers_i/mstack_cause_q_1_",
+    "cell": "croc_chip",
+    "box": [
+      1372355,
+      1052520,
+      1372555,
+      1053090
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_18991900",
+    "cell": "croc_chip",
+    "box": [
+      1363605,
+      1052520,
+      1363805,
+      1053070
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_19101911",
+    "cell": "croc_chip",
+    "box": [
+      1373180,
+      1052520,
+      1373380,
+      1053090
+    ]
+  },
+  {
+    "net": "clknet_leaf_297_soc_clk_i_regs",
+    "cell": "VIA_Via2_YX",
+    "box": [
+      1366935,
+      1049015,
+      1367145,
+      1049305
+    ]
+  },
+  {
+    "net": "i_croc_soc/i_croc/i_core_wrap/i_core.cs_registers_i/_1064_",
+    "cell": "VIA_Via1_YY",
+    "box": [
+      1363100,
+      1052375,
+      1363300,
+      1052665
+    ]
+  },
+  {
+    "net": "i_croc_soc/i_croc/i_core_wrap/i_core.cs_registers_i/_1064_",
+    "cell": "VIA_Via2_YX",
+    "box": [
+      1363095,
+      1050695,
+      1363305,
+      1050985
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_47264727",
+    "cell": "VIA_Via2_YX",
+    "box": [
+      1365495,
+      1049855,
+      1365705,
+      1050145
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_47264727",
+    "cell": "VIA_Via1_XY",
+    "box": [
+      1364540,
+      1048835,
+      1364740,
+      1049125
+    ]
+  },
+  {
+    "net": "i_croc_soc/i_croc/i_core_wrap/i_core.cs_registers_i/mstack_epc_q_1_",
+    "cell": "VIA_Via2_YX",
+    "box": [
+      1365495,
+      1053635,
+      1365705,
+      1053925
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_18591860",
+    "cell": "VIA_Via2_YX",
+    "box": [
+      1365015,
+      1050695,
+      1365225,
+      1050985
+    ]
+  },
+  {
+    "net": "net805",
+    "cell": "VIA_Via2_YX",
+    "box": [
+      1363095,
+      1049855,
+      1363305,
+      1050145
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_18351836",
+    "cell": "VIA_Via2_YX",
+    "box": [
+      1366455,
+      1051535,
+      1366665,
+      1051825
+    ]
+  },
+  {
+    "net": "i_croc_soc/i_croc/i_core_wrap/i_core.cs_registers_i/_1621_",
+    "cell": "VIA_Via1_XY",
+    "box": [
+      1363580,
+      1051535,
+      1363780,
+      1051825
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_18511852",
+    "cell": "VIA_Via2_YX",
+    "box": [
+      1363095,
+      1054895,
+      1363305,
+      1055185
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_18991900",
+    "cell": "VIA_Via1_XY",
+    "box": [
+      1363605,
+      1052375,
+      1363805,
+      1052665
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_18991900",
+    "cell": "VIA_Via2_YX",
+    "box": [
+      1363575,
+      1052375,
+      1363785,
+      1052665
+    ]
+  },
+  {
+    "net": "i_croc_soc/i_croc/i_core_wrap/i_core.cs_registers_i/mstack_cause_q_1_",
+    "cell": "VIA_Via2_YX",
+    "box": [
+      1372350,
+      1052375,
+      1372560,
+      1052665
+    ]
+  },
+  {
+    "net": "i_croc_soc/i_croc/i_core_wrap/i_core.cs_registers_i/_1620_",
+    "cell": "VIA_Via2_YX",
+    "box": [
+      1371720,
+      1051955,
+      1371930,
+      1052245
+    ]
+  },
+  {
+    "net": null,
+    "cell": "VIA_via2_3_1000_320_1_2_410_410",
+    "box": [
+      1367695,
+      1050695,
+      1368305,
+      1050985
+    ]
+  },
+  {
+    "net": null,
+    "cell": "VIA_via1_2_1000_320_1_2_410_410",
+    "box": [
+      1367695,
+      1050695,
+      1368305,
+      1050985
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_19101911",
+    "cell": "VIA_Via1_YY",
+    "box": [
+      1373180,
+      1052375,
+      1373380,
+      1052665
+    ]
+  },
+  {
+    "net": "i_croc_soc/i_croc/i_core_wrap/i_core.cs_registers_i/_1620_",
+    "cell": "VIA_Via1_XY",
+    "box": [
+      1371740,
+      1052375,
+      1371940,
+      1052665
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_19101911",
+    "cell": "VIA_Via2_YX",
+    "box": [
+      1373175,
+      1052370,
+      1373385,
+      1052660
+    ]
+  },
+  {
+    "net": "i_croc_soc/i_croc/i_core_wrap/i_core.cs_registers_i/_1976_",
+    "cell": "VIA_Via1_YY",
+    "box": [
+      1371740,
+      1053635,
+      1371940,
+      1053925
+    ]
+  },
+  {
+    "net": "i_croc_soc/i_croc/i_core_wrap/i_core.cs_registers_i/_1977_",
+    "cell": "VIA_Via2_YX",
+    "box": [
+      1373175,
+      1053635,
+      1373385,
+      1053925
+    ]
+  },
+  {
+    "net": "i_croc_soc/i_croc/i_core_wrap/i_core.cs_registers_i/mstack_cause_q_1_",
+    "cell": "VIA_Via1_XY",
+    "box": [
+      1372355,
+      1052375,
+      1372555,
+      1052665
+    ]
+  },
+  {
+    "net": "clknet_leaf_297_soc_clk_i_regs",
+    "cell": "VIA_Via1_XY",
+    "box": [
+      1368860,
+      1049015,
+      1369060,
+      1049305
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_18991900",
+    "cell": "VIA_Via2_YX",
+    "box": [
+      1373655,
+      1049015,
+      1373865,
+      1049305
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_22022203",
+    "cell": "VIA_Via1_XY",
+    "box": [
+      1368860,
+      1052795,
+      1369060,
+      1053085
+    ]
+  },
+  {
+    "net": "i_croc_soc/i_croc/i_core_wrap/i_core.exc_cause_1_",
+    "cell": "VIA_Via1_YY",
+    "box": [
+      1373660,
+      1052165,
+      1373860,
+      1052455
+    ]
+  },
+  {
+    "net": "cp3d_fanout_net_18231824",
+    "cell": "VIA_Via2_YX",
+    "box": [
+      1369335,
+      1051115,
+      1369545,
+      1051405
+    ]
+  },
+  {
+    "net": "i_croc_soc/i_croc/i_core_wrap/i_core.crash_dump_o_3_",
+    "cell": "VIA_Via2_YX",
+    "box": [
+      1372215,
+      1049435,
+      1372425,
+      1049725
+    ]
+  },
+  {
+    "net": "net938",
+    "cell": "VIA_Via1_XY",
+    "box": [
+      1370300,
+      1052375,
+      1370500,
+      1052665
+    ]
+  }
+]

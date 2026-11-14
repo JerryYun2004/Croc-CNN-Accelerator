@@ -1,0 +1,73 @@
+{
+  "date": "2026-10-23",
+  "timing_characterization_recipe_found_in_pinned_cmos5l_tree": false,
+  "physical_disable_semantics_verified": false,
+  "ss_history_observation": {
+    "returned_commits": 1,
+    "introduction_commit": "55c33b26c1dec9f4730da888cfd0c52e2986d1ee",
+    "introduction_description": "alpha I/O release",
+    "scope": "Queried default-branch history of this specific SS Liberty path; not a global search guarantee."
+  },
+  "sources": [
+    {
+      "repo": "The-OpenROAD-Project/OpenSTA",
+      "commit": "f7febae35ba9675f4ff08839623e3aa8d319ce58",
+      "path": "search/CheckSlews.cc",
+      "sha256": "7124378f90d73d9089ddb9652bafe99e4a438c0b98e655b6be97ffb7c3cafa12",
+      "finding": "check3 uses the merged vertex slew; findLimit inherits the output library limit",
+      "url": "https://github.com/The-OpenROAD-Project/OpenSTA/blob/f7febae35ba9675f4ff08839623e3aa8d319ce58/search/CheckSlews.cc"
+    },
+    {
+      "repo": "The-OpenROAD-Project/OpenSTA",
+      "commit": "f7febae35ba9675f4ff08839623e3aa8d319ce58",
+      "path": "dcalc/GraphDelayCalc.cc",
+      "sha256": "86bab0f72ae44b81ff036674d5fac0651a234da0993b18b22e5a5a499684382d",
+      "finding": "annotateDelaySlew merges the arc slew at the output vertex",
+      "url": "https://github.com/The-OpenROAD-Project/OpenSTA/blob/f7febae35ba9675f4ff08839623e3aa8d319ce58/dcalc/GraphDelayCalc.cc"
+    },
+    {
+      "repo": "The-OpenROAD-Project/OpenSTA",
+      "commit": "f7febae35ba9675f4ff08839623e3aa8d319ce58",
+      "path": "util/Transition.cc",
+      "sha256": "b3d683783b36d30ce536d60ef9681902978c2302f163ca9431b7f74141d3d589",
+      "finding": "0Z and 1Z map to rise/fall categories",
+      "url": "https://github.com/The-OpenROAD-Project/OpenSTA/blob/f7febae35ba9675f4ff08839623e3aa8d319ce58/util/Transition.cc"
+    },
+    {
+      "repo": "The-OpenROAD-Project/OpenSTA",
+      "commit": "f7febae35ba9675f4ff08839623e3aa8d319ce58",
+      "path": "liberty/LibertyBuilder.cc",
+      "sha256": "93b4541ce22be050782a8911113c6e1868f395103a7acc669ade7ef0e80b7347",
+      "finding": "makeTristateDisableArcs creates the distinct release arcs",
+      "url": "https://github.com/The-OpenROAD-Project/OpenSTA/blob/f7febae35ba9675f4ff08839623e3aa8d319ce58/liberty/LibertyBuilder.cc"
+    },
+    {
+      "repo": "IHP-GmbH/IHP-Open-PDK",
+      "commit": "ee974c3adc69d0f36adbf20577079f0df419d702",
+      "path": "ihp-sg13g2/libs.ref/sg13g2_io/doc/README.md",
+      "sha256": "3dc6c057daae2b1e9622647daaef3bc8141d9cb332aba6ce6926d29d25dc2073",
+      "finding": "Related SG13G2 README lists timing Liberty files as external contributions; no CMOS5L disable recipe established.",
+      "url": "https://github.com/IHP-GmbH/IHP-Open-PDK/blob/ee974c3adc69d0f36adbf20577079f0df419d702/ihp-sg13g2/libs.ref/sg13g2_io/doc/README.md"
+    }
+  ],
+  "models": {
+    "tt": {
+      "filename": "sg13cmos5l_io_typ_1p2V_3p3V_25C.lib",
+      "sha256": "e6b5adf1ce31db3a0c15e5ca069c62e7d9efb604a710b8f6582700f1721d2d98",
+      "git_blob_sha1": "b1d4d958058b5314084ab757257a3eeeb4675108",
+      "url": "https://github.com/IHP-GmbH/ihp-sg13cmos5l/blob/5958eb38973d5c56e7a26f65fc23d9f3a740ccd2/libs.ref/sg13cmos5l_io/lib/sg13cmos5l_io_typ_1p2V_3p3V_25C.lib"
+    },
+    "ff": {
+      "filename": "sg13cmos5l_io_fast_1p32V_3p6V_m40C.lib",
+      "sha256": "f25da27e4cc0c94ffbce99e0654814a3af48d00c4ec571c9db5915208a7bbe07",
+      "git_blob_sha1": "995854aea60398b8c47ded644c5499272bae866b",
+      "url": "https://github.com/IHP-GmbH/ihp-sg13cmos5l/blob/5958eb38973d5c56e7a26f65fc23d9f3a740ccd2/libs.ref/sg13cmos5l_io/lib/sg13cmos5l_io_fast_1p32V_3p6V_m40C.lib"
+    },
+    "ss": {
+      "filename": "sg13cmos5l_io_slow_1p08V_3p0V_125C.lib",
+      "sha256": "0dbb628168f9855eb88aee0d557da25c4cefb8c6b727a496fa2a02fd40da5cdb",
+      "git_blob_sha1": "2f0602f3e2ce491ce69d3be7687654b1524fbd34",
+      "url": "https://github.com/IHP-GmbH/ihp-sg13cmos5l/blob/5958eb38973d5c56e7a26f65fc23d9f3a740ccd2/libs.ref/sg13cmos5l_io/lib/sg13cmos5l_io_slow_1p08V_3p0V_125C.lib"
+    }
+  }
+}

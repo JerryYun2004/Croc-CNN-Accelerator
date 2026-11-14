@@ -1,0 +1,92 @@
+{
+  "version": "1.0-sram-obi",
+  "cp1_package_manifest": "8a34b72488c76924c15c9c985dd91631f003d52a9a3a4c5c8bff3170b08424d4",
+  "cp2a_package_manifest": "e41d37e93dbd783b997bb798159b537abe7edd8a798396faf0108f1ff207187a",
+  "cp2a_evidence_manifest": "06fe43ce66ddbf47bd612b5dfab8f53ca12d2ef8cf3ac343ab1cc665fa7cc696",
+  "upstream_files": {
+    "ihp13/pdk/verilog/RM_IHPSG13_1P_512x32_c2_bm_bist.v": {
+      "sha256": "674bd6cf66d982ed55fae0c69b72490c54d15658251ac868a08847fd863741dd",
+      "bundled": "third_party/RM_IHPSG13_1P_512x32_c2_bm_bist.v"
+    },
+    "ihp13/pdk/verilog/RM_IHPSG13_1P_core_behavioral_bm_bist.v": {
+      "sha256": "e2e43ec0159cbc34662fe91114e8cb03a697a2a829ad63b0d4f06631908ea787",
+      "bundled": "third_party/RM_IHPSG13_1P_core_behavioral_bm_bist.v"
+    },
+    "rtl/user_pkg.sv": {
+      "sha256": "fa99ef29e30c8bfab662fa737c0b888d088600d100db77b746507267b036154e",
+      "bundled": "third_party/user_pkg.sv"
+    },
+    "rtl/croc_pkg.sv": {
+      "sha256": "d0927481f164b2c1be9fc13eba111ea7b5a456b99d90e4e7bb679dcc04171cbc",
+      "bundled": "third_party/croc_pkg.sv"
+    },
+    "rtl/obi/obi_err_sbr.sv": {
+      "sha256": "07fdc8399f78f083db0c6878f755959596c72ae15a61079e9cff6c3b8116819c",
+      "bundled": "third_party/rtl/obi/obi_err_sbr.sv"
+    },
+    "rtl/obi/obi_pkg.sv": {
+      "sha256": "8eb864f25aed595f9315f9bf368607059efded664faf697fcf8ee39556d270a4",
+      "bundled": "third_party/rtl/obi/obi_pkg.sv"
+    },
+    "rtl/obi/obi_demux.sv": {
+      "sha256": "df2a5e75c95ce0ab8cc263e1fb0fd6725ab2e3b5d94c91f816e79843ba20842c",
+      "bundled": "third_party/rtl/obi/obi_demux.sv"
+    },
+    "rtl/common_cells/delta_counter.sv": {
+      "sha256": "95e28f8eaca7d5524081d51f2ea8b43a14bc8a5837dcf8f65080c09b85943636",
+      "bundled": "third_party/rtl/common_cells/delta_counter.sv"
+    },
+    "rtl/common_cells/addr_decode_dync.sv": {
+      "sha256": "8360f958a1a81c54e96dfbb9e5d3392c9c475b1b7a9ebb1e0c2dbbbbf8ec0b29",
+      "bundled": "third_party/rtl/common_cells/addr_decode_dync.sv"
+    },
+    "rtl/common_cells/cf_math_pkg.sv": {
+      "sha256": "bbf0614771ceb9526356bb8e5234787324ef215884bc11b4aa27e91fc3cc8910",
+      "bundled": "third_party/rtl/common_cells/cf_math_pkg.sv"
+    },
+    "rtl/common_cells/addr_decode.sv": {
+      "sha256": "4d124ff240e5dd38cd3d4f73fc26754041e7105d4599eb581e6bed4bdc1cc34a",
+      "bundled": "third_party/rtl/common_cells/addr_decode.sv"
+    },
+    "rtl/common_cells/fifo_v3.sv": {
+      "sha256": "861ea44cbd3129731b77977da36fb0dac1a1350d7df664a1b4310423e7d272bc",
+      "bundled": "third_party/rtl/common_cells/fifo_v3.sv"
+    },
+    "rtl/obi/include/obi/typedef.svh": {
+      "sha256": "b21c8b87080fa448b113cac67432f476bf5fa541608e1fe61f580d35d5d991d3",
+      "bundled": "third_party/rtl/obi/include/obi/typedef.svh"
+    },
+    "rtl/obi/include/obi/assign.svh": {
+      "sha256": "6677aa2c7973a083c36c42f7282baff634724ea30bb8ea82fd2aca17a25ec44a",
+      "bundled": "third_party/rtl/obi/include/obi/assign.svh"
+    },
+    "rtl/common_cells/include/common_cells/assertions.svh": {
+      "sha256": "d39c7afa893656e235b0019233c1bcf12491cd421639791c827cc53236bd4841",
+      "bundled": "third_party/rtl/common_cells/include/common_cells/assertions.svh"
+    },
+    "rtl/common_cells/include/common_cells/registers.svh": {
+      "sha256": "532dfd1723d2936421b921235abdafcc8ca407990224992ca13575fdb620053a",
+      "bundled": "third_party/rtl/common_cells/include/common_cells/registers.svh"
+    }
+  },
+  "liberty": {
+    "path": "ihp13/pdk/lib/sg13g2_stdcell_typ_1p20V_25C.lib",
+    "sha256": "7677a8918689f452e80405ad16a83e744709342574f2aedcc507c2758986b396"
+  },
+  "sram_lef": {
+    "path": "ihp13/pdk/lef/RM_IHPSG13_1P_512x32_c2_bm_bist.lef",
+    "sha256": "6e483caff960deaeb97e69a205bbb811b94b4aba15d27d48658e9d5248733cfd"
+  },
+  "technology_lef": {
+    "path": "ihp13/pdk/lef/sg13cmos5l_tech.lef",
+    "sha256": "3edd5a1ad31e8307be537d0d1b85c3258fefeb21aac04aaa476e4f72de4cffd5"
+  },
+  "standard_cell_lef": {
+    "path": "ihp13/pdk/lef/sg13g2_stdcell.lef",
+    "sha256": "c9bbc02d0c2cba3b15cd89a208750d25de882f02a2927ae78ba6422109fb01d0"
+  },
+  "sram_liberty": {
+    "path": "ihp13/pdk/lib/RM_IHPSG13_1P_512x32_c2_bm_bist_typ_1p20V_25C.lib",
+    "sha256": "1a7409f75c7107385d01f8b2e9cde5d22ee54e1e914643b70e19833e03f3e9b0"
+  }
+}

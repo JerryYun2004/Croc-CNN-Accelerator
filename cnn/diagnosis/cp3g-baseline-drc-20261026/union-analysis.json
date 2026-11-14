@@ -1,0 +1,8 @@
+{
+  "reader": "KLayout LEF/DEF; no DRC performed",
+  "target_union_polygons": 1,
+  "uncovered_marker_area_um2": 0.0,
+  "marker_enclosure_gap_um": 0.13,
+  "LEF_base_spacing_um": 0.21,
+  "note": "Candidate via pair inferred; checker reports net and bbox only. Marker is filled by connected target metal. This reconstruction does not establish checker edge identities or invalidate full DRC."
+}

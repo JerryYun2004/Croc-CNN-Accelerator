@@ -1,0 +1,22 @@
+`verilator_config
+// Narrow waivers for unmodified upstream simulation sources only.
+lint_off -rule DECLFILENAME -file "*/RM_IHPSG13_1P_core_behavioral_bm_bist.v"
+lint_off -rule UNUSEDSIGNAL -file "*/RM_IHPSG13_1P_core_behavioral_bm_bist.v"
+lint_off -rule UNUSEDPARAM -file "*/obi_pkg.sv"
+lint_off -rule UNUSEDPARAM -file "*/croc_pkg.sv"
+lint_off -rule UNUSEDSIGNAL -file "*/croc_pkg.sv"
+lint_off -rule EOFNEWLINE -file "*/RM_IHPSG13_1P_512x32_c2_bm_bist.v"
+lint_off -rule DECLFILENAME -file "*/obi_demux.sv"
+lint_off -rule GENUNNAMED -file "*/obi_demux.sv"
+lint_off -rule DECLFILENAME -file "*/obi_err_sbr.sv"
+lint_off -rule GENUNNAMED -file "*/obi_err_sbr.sv"
+lint_off -rule PINCONNECTEMPTY -file "*/obi_err_sbr.sv"
+lint_off -rule UNUSEDSIGNAL -file "*/fifo_v3.sv"
+lint_off -rule WIDTHTRUNC -file "*/user_pkg.sv"
+// These warnings are inherited from the frozen user_domain skeleton.
+lint_off -rule UNUSEDSIGNAL -file "*/user_domain.sv"
+lint_off -rule PINCONNECTEMPTY -file "*/user_domain.sv"
+lint_off -rule WIDTHTRUNC -file "*/user_domain.sv"
+// Upstream FIFO assertions sample the otherwise asynchronous reset.
+lint_off -rule SYNCASYNCNET -file "*/user_domain.sv"
+lint_off -rule SYNCASYNCNET -file "*/user_tb.sv"

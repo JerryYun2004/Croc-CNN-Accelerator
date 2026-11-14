@@ -1,0 +1,168 @@
+# Native KLayout entry: the copied pinned PDK deck is unchanged.
+# The launcher uses NET_ONLY with simplification and all waivers disabled.
+threads(2)
+# %include sg13cmos5l.lvs
+require 'json'
+require 'fileutils'
+
+def cp0b_assert(condition, message)
+  raise message unless condition
+end
+
+def cp0b_net(net)
+  net.nil? ? nil : {name: net.name, expanded_name: net.expanded_name, cluster_id: net.cluster_id}
+end
+
+def cp0b_collect(object, method)
+  values = []
+  object.send(method) { |value| values << value }
+  values
+end
+
+def cp0b_active_classes(circuit)
+  # CustomReader creates lowercase MOS classes in a case-insensitive SPICE
+  # netlist. In KLayout 0.30.9 name lookup can return nil for those classes.
+  # Use the actual objects attached to devices; retain every distinct class.
+  classes = {}
+  cp0b_collect(circuit,:each_device).each do |device|
+    dc = device.device_class
+    cp0b_assert(!dc.nil?, "Device without class: #{device.expanded_name}")
+    key = dc.name.downcase
+    classes[key] ||= {}
+    classes[key][dc.id] = dc
+  end
+  classes.transform_values(&:values)
+end
+
+def cp0b_class_inventory(nl, classes)
+  classes.values.flatten.map do |dc|
+    {name:dc.name, id:dc.id,
+     name_lookup_found:!nl.device_class_by_name(dc.name).nil?,
+     terminals:dc.terminal_definitions.map(&:name),
+     parameters:dc.parameter_definitions.map(&:name)}
+  end
+end
+
+def cp0b_inventory(circuit)
+  {
+    name: circuit.name,
+    pins: cp0b_collect(circuit,:each_pin).map { |p| {name: p.name, net: cp0b_net(circuit.net_for_pin(p.id))} },
+    nets: cp0b_collect(circuit,:each_net).map { |n| cp0b_net(n) },
+    subcircuits: cp0b_collect(circuit,:each_subcircuit).map { |s| s.circuit_ref.name },
+    devices: cp0b_collect(circuit,:each_device).map do |d|
+      dc = d.device_class
+      {
+        name: d.expanded_name, model: dc.name,
+        parameters: dc.parameter_definitions.to_h { |p| [p.name, d.parameter(p.id)] },
+        terminals: dc.terminal_definitions.to_h { |t| [t.name, cp0b_net(d.net_for_terminal(t.id))] }
+      }
+    end
+  }
+end
+
+cp0b_assert(NET_ONLY && !SIMPLIFY && !COMBINE_DEVICES && !PURGE && !PURGE_NETS,
+            'Unexpected extraction/simplification switches')
+cp0b_assert(!DISABLE_TAP_EXTRACTION && !IGNORE_TOP_PORTS_MISMATCH && IMPLICIT_NETS.empty?,
+            'Unexpected waiver or implicit-connection switch')
+config = JSON.parse(File.read($cp0b_config))
+layout_netlist = netlist
+layout_netlist.flatten
+layout_netlist.make_top_level_pins
+cp0b_assert(layout_netlist.top_circuits.size == 1, 'Expected exactly one isolated top')
+layout_top = layout_netlist.top_circuit
+cp0b_assert(layout_top.name.upcase == config.fetch('top').upcase, 'Extracted top differs')
+inventory = cp0b_inventory(layout_top)
+actual_models = inventory[:devices].each_with_object(Hash.new(0)) { |d,h| h[d[:model].downcase] += 1 }
+expected_models = config.fetch('name') == 'bitcell' ?
+  {'sg13_lv_nmos'=>4, 'sg13_lv_pmos'=>2, 'res_metal2'=>2, 'res_metal3'=>1} :
+  {'res_'+config.fetch('name')=>1}
+inventory_ok = actual_models == expected_models && inventory[:subcircuits].empty?
+state = lvs_data
+errors = cp0b_collect(state,:each_error).map(&:to_s)
+result = {fixture:config.fetch('name'), top:config.fetch('top'), inventory:inventory,
+          inventory_ok:inventory_ok, expected_models:expected_models,
+          extraction_errors:errors, cases:[], tap_extraction_enabled:true,
+          implicit_connections:[], blackboxes:[], source_geometry_modified:false}
+output = File.dirname($cp0b_result)
+File.write($cp0b_result,JSON.pretty_generate(result)+"\n")
+
+config.fetch('references').each do |item|
+  variant = item.fetch('variant')
+  directory = File.join(output,variant)
+  FileUtils.mkdir_p(directory)
+  reference = RBA::Netlist.new
+  reference.read(item.fetch('path'), RBA::NetlistSpiceReader.new(CustomReader.new))
+  cp0b_assert(reference.top_circuits.size == 1, 'Reference top count differs')
+  state.reference = reference
+  reference = state.reference  # The LVS object now owns the reference.
+  ref_top = reference.top_circuit
+  cp0b_assert(ref_top.name.upcase == layout_top.name.upcase, 'Reference top name differs')
+  comparator = RBA::NetlistComparer.new
+  comparator.max_depth = 20
+  comparator.max_branch_complexity = 256
+  comparator.same_circuits(layout_top,ref_top)
+
+  # Layer-specific classes in translated references; the original generic
+  # LVSRES mapping exists only for the deliberately failing legacy control.
+  active_a = cp0b_active_classes(layout_top)
+  active_b = cp0b_active_classes(ref_top)
+  class_report = {layout:cp0b_class_inventory(layout_netlist,active_a),
+                  reference:cp0b_class_inventory(reference,active_b), mappings:[]}
+  File.write(File.join(directory,'class-resolution.json'),JSON.pretty_generate(class_report)+"\n")
+  File.write(File.join(directory,'reference-inventory.json'),JSON.pretty_generate(cp0b_inventory(ref_top))+"\n")
+  active_a.each do |name, layout_classes|
+    target = active_b.key?(name) ? name : nil
+    if target.nil? && name.start_with?('res_metal') && variant == 'original'
+      target = 'lvsres' if active_b.key?('lvsres')
+    end
+    next if target.nil?  # Unpaired class must mismatch; never map it to nil.
+    layout_classes.product(active_b.fetch(target)).each do |ac,bc|
+      cp0b_assert(!ac.nil? && !bc.nil?, "Missing active class counterpart: #{name}/#{target}")
+      comparator.same_device_classes(ac,bc)
+      class_report[:mappings] << {layout:ac.name, layout_id:ac.id,
+                                  reference:bc.name, reference_id:bc.id}
+    end
+  end
+  File.write(File.join(directory,'class-resolution.json'),JSON.pretty_generate(class_report)+"\n")
+  [layout_netlist,reference].each do |nl|
+    nl.each_device_class do |dc|
+      next unless dc.name.downcase.start_with?('res_metal') || dc.name.downcase == 'lvsres'
+      dc.enable_parameter('L',true)
+      dc.enable_parameter('W',true)
+      dc.enable_parameter('R',false) # Pinned RES2 convention: CDL has no physical R.
+    end
+  end
+  lp = cp0b_collect(layout_top,:each_pin).group_by(&:name)
+  rp = cp0b_collect(ref_top,:each_pin).group_by(&:name)
+  port_set_ok = lp.keys.sort == rp.keys.sort && lp.values.all? { |v| v.size == 1 } && rp.values.all? { |v| v.size == 1 }
+  (lp.keys & rp.keys).each do |name|
+    next unless lp[name].size == 1 && rp[name].size == 1
+    an = layout_top.net_for_pin(lp[name].first.id)
+    bn = ref_top.net_for_pin(rp[name].first.id)
+    cp0b_assert(!an.nil? && !bn.nil?, 'Disconnected declared port')
+    comparator.same_nets(an,bn,true)
+  end
+  raw_match = state.compare(comparator)
+  xref = state.xref
+  cp0b_assert(!xref.nil?, 'Comparison did not produce a cross-reference')
+  circuit_pairs = cp0b_collect(xref,:each_circuit_pair)
+  circuit_rows = circuit_pairs.map do |pair|
+    {layout:pair.first.nil? ? nil : pair.first.name,
+     reference:pair.second.nil? ? nil : pair.second.name,status:pair.status.to_s}
+  end
+  top_match = circuit_pairs.size == 1 && circuit_pairs[0].status == RBA::NetlistCrossReference::Match
+  strict = !!(raw_match && port_set_ok && inventory_ok && errors.empty? && top_match)
+  row = {variant:variant, raw_compare_match:!!raw_match, strict_match:strict,
+         port_set_ok:port_set_ok, missing_layout_ports:rp.keys-lp.keys,
+         extra_layout_ports:lp.keys-rp.keys,
+         duplicate_layout_ports:lp.select { |_k,v| v.size != 1 }.keys,
+         circuits:circuit_rows, reference:cp0b_inventory(ref_top),
+         reference_path:item.fetch('path'), length_checked:true, width_checked:true,
+         layer_specific_models:variant != 'original'}
+  File.write(File.join(directory,'comparison.json'),JSON.pretty_generate(row)+"\n")
+  state.write(File.join(directory,'layout.lvsdb'))
+  result[:cases] << row
+  File.write($cp0b_result,JSON.pretty_generate(result)+"\n")
+  puts "CP0B_CASE #{config.fetch('name')}/#{variant} strict_match=#{strict}"
+end
+puts 'CP0B_NATIVE_BITCELL_PROBE_COMPLETE'

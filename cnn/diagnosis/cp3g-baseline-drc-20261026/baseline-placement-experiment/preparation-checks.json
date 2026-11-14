@@ -1,0 +1,9 @@
+{
+  "status": "STATIC_PREPARATION_CHECKS_PASS",
+  "pinned_inputs": 58,
+  "single_cell_patch_verified": true,
+  "all_net_pin_power_via_NDR_records_unchanged_by_patch": true,
+  "allowlist_rejects_unauthorized_cell_attribute": true,
+  "native_EDA_runs": 0,
+  "native_runtime_validation": "NOT_RUN"
+}

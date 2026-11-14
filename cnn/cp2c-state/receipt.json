@@ -1,0 +1,11 @@
+{
+  "active": true,
+  "installed": {
+    "Bender.yml": "7bf46d30b22a78f5d2779613a63687cc45b15b212c78fa34e86f440a7a5236b4",
+    "rtl/user_domain.sv": "7c77e35faeb0810d9aafad4e38abd58d6c236b56de702506fd914a91eecaa3aa"
+  },
+  "original": {
+    "Bender.yml": "be2187729d239edb2196c60eac59269a897feaf92a9d14f7872d1418ce23c919",
+    "rtl/user_domain.sv": "2970f4ab732d363e9acba1d422b2d20e5b2312b1e376a69c5bfa3801f0e03700"
+  }
+}

@@ -1,0 +1,21 @@
+# Read the complete prepared reference BEFORE starting the expensive extraction.
+require 'json'
+require 'logger'
+$cp0i_logger=Logger.new($stdout)
+def logger; $cp0i_logger; end
+def dbu; 0.001; end
+PARALLEL_RES=true
+SERIES_RES=false
+# %include rule_decks/custom_classes.lvs
+reference=RBA::Netlist.new
+reference.read($cp0i_reference,RBA::NetlistSpiceReader.new(CustomReader.new))
+expected=JSON.parse(File.read($cp0i_ledger)).fetch('reachable_circuits').map(&:upcase).sort
+names=[];reference.each_circuit { |c| names << c.name }
+raise 'Reference reader changed reachable circuit coverage' unless names.sort==expected
+tops=reference.top_circuits
+raise 'Prepared reference has an unexpected top' unless tops.size==1 && tops.first.name=='CROC_CHIP'
+pins=[];tops.first.each_pin { |p| pins << p.name }
+raise 'Prepared reference does not have 52 chip ports' unless pins.size==52 && pins.uniq.size==52
+File.write($cp0i_report,JSON.pretty_generate({status:'INTEGRATION_REFERENCE_READ_VERIFIED',
+ top:tops.first.name,circuit_count:names.size,pins:pins,extraction_performed:false})+"\n")
+puts 'CP0C_INTEGRATION_REFERENCE_READY'

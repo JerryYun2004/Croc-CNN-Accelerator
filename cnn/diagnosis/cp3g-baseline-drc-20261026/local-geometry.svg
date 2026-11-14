@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="850" viewBox="0 0 1120 850">
+<defs><clipPath id="plot"><rect x="70" y="100" width="1040" height="640"/></clipPath></defs>
+<rect width="100%" height="100%" fill="white"/>
+<g font-family="Arial,sans-serif" fill="#182331">
+<text x="35" y="34" font-size="23">Baseline Metal2: reproduced full-design marker</text>
+<text x="35" y="61" font-size="15">LEF/DEF reconstruction • coordinates in µm • edge identities inferred, not checker-confirmed</text>
+<g clip-path="url(#plot)">
+<polygon points="795.50,5814.00 795.50,-7884.00 885.50,-7884.00 885.50,5814.00" fill="#b5b9bd" fill-opacity="0.55" stroke="#b5b9bd" stroke-width="1.5"/>
+<polygon points="147.50,1845.00 147.50,432.00 237.50,432.00 237.50,1845.00" fill="#b5b9bd" fill-opacity="0.55" stroke="#b5b9bd" stroke-width="1.5"/>
+<polygon points="1011.50,3924.00 1011.50,-1458.00 1101.50,-1458.00 1101.50,3924.00" fill="#b5b9bd" fill-opacity="0.55" stroke="#b5b9bd" stroke-width="1.5"/>
+<polygon points="590.75,522.00 590.75,243.00 680.75,243.00 680.75,522.00" fill="#66bfa4" fill-opacity="0.55" stroke="#66bfa4" stroke-width="1.5"/>
+<polygon points="363.50,522.00 363.50,-1080.00 453.50,-1080.00 453.50,522.00" fill="#b5b9bd" fill-opacity="0.55" stroke="#b5b9bd" stroke-width="1.5"/>
+<polygon points="590.75,546.75 590.75,477.00 680.75,477.00 680.75,546.75" fill="#87cbb9" fill-opacity="0.55" stroke="#87cbb9" stroke-width="1.5"/>
+<polygon points="590.75,542.25 590.75,411.75 680.75,411.75 680.75,542.25" fill="#2878ba" fill-opacity="0.55" stroke="#2878ba" stroke-width="1.5"/>
+<polygon points="588.50,353.25 588.50,222.75 683.00,222.75 683.00,353.25" fill="#a95ca8" fill-opacity="0.55" stroke="#a95ca8" stroke-width="1.5"/>
+<polygon points="363.50,542.25 363.50,411.75 453.50,411.75 453.50,542.25" fill="#c4c8cc" fill-opacity="0.55" stroke="#c4c8cc" stroke-width="1.5"/>
+<polygon points="147.50,542.25 147.50,411.75 237.50,411.75 237.50,542.25" fill="#c4c8cc" fill-opacity="0.55" stroke="#c4c8cc" stroke-width="1.5"/>
+<polygon points="590.75,546.75 590.75,353.25 588.50,353.25 588.50,222.75 683.00,222.75 683.00,353.25 680.75,353.25 680.75,546.75" fill="none" stroke="#064b37" stroke-width="3"/>
+<rect x="590.7499999999959" y="353.24999999997544" width="90.0" height="58.5" fill="none" stroke="#df2538" stroke-width="3" stroke-dasharray="6 3"/>
+</g>
+<text x="170.5" y="762" font-size="13">556.8</text>
+<text x="350.5000000000409" y="762" font-size="13">557.2</text>
+<text x="530.5000000000307" y="762" font-size="13">557.6</text>
+<text x="710.5000000000205" y="762" font-size="13">558.0</text>
+<text x="890.5000000000102" y="762" font-size="13">558.4</text>
+<text x="1070.5" y="762" font-size="13">558.8</text>
+<text x="6" y="678.9999999999898" font-size="13">840.4</text>
+<text x="6" y="499.0" font-size="13">840.8</text>
+<text x="6" y="318.9999999999591" font-size="13">841.2</text>
+<text x="6" y="138.9999999999693" font-size="13">841.6</text>
+<path d="M 633.5000000000082 512.9999999999836 L 600 656" fill="none" stroke="#465363"/><text x="600" y="660" font-size="15">S2 Via1_XY</text>
+<path d="M 633.5000000000082 260.999999999957 L 630 156" fill="none" stroke="#465363"/><text x="630" y="160" font-size="15">S3 Via2_YX</text>
+<path d="M 638.0000000000041 386.9999999999959 L 725 416" fill="none" stroke="#465363"/><text x="725" y="420" font-size="15">S1 bridge</text>
+<path d="M 633.5000000000082 544.499999999955 L 690 701" fill="none" stroke="#465363"/><text x="690" y="705" font-size="15">S4 patch</text>
+<path d="M 840.5000000000246 224.99999999998977 L 850 216" fill="none" stroke="#465363"/><text x="850" y="220" font-size="15">N1 net3039</text>
+<path d="M 408.5000000000082 224.99999999998977 L 170 166" fill="none" stroke="#465363"/><text x="170" y="170" font-size="15">N2 _1433_</text>
+<path d="M 192.5 495.0 L 100 606" fill="none" stroke="#465363"/><text x="100" y="610" font-size="15">N3 _1442_</text>
+<path d="M 1056.5000000000327 224.99999999998977 L 920 136" fill="none" stroke="#465363"/><text x="920" y="140" font-size="15">N4 clock</text>
+<text x="35" y="800" font-size="15" fill="#c7192c">Red dashed: full-design DRC marker, (557.685,840.985)–(557.885,841.115)</text>
+<text x="35" y="825" font-size="15">Dark green: merged target metal. Marker interior is covered by the bridge; no 0.130 µm void.</text>
+</g></svg>

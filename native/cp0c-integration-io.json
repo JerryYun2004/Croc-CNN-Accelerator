@@ -1,0 +1,933 @@
+{
+  "schema": "CP0C-IO-integration-1",
+  "cells": {
+    "sg13cmos5l_SecondaryProtection": {
+      "pins": [
+        "core",
+        "minus",
+        "pad",
+        "plus",
+        "sub!"
+      ],
+      "body": [
+        "RR0 pad core sub! rppd R=586.899 m=1 l=2u w=1u ps=0 trise=0.0 b=0",
+        "DD0 sub! core dantenna m=1 w=640n l=3.1u a=1.984p p=7.48u",
+        "RCP0T_XR1 minus sub! 46.556 MODEL=ptap1 r=46.556 A=9.0304p Perim=53.12u w=3.005u l=3.005u",
+        "DD1 core plus dpantenna m=1 w=640n l=4.98u a=3.187p p=11.24u"
+      ]
+    },
+    "sg13cmos5l_LevelDown": {
+      "pins": [
+        "core",
+        "iovdd",
+        "iovss",
+        "pad",
+        "vdd",
+        "vss",
+        "sub!"
+      ],
+      "body": [
+        "MP0 net2 net4 vdd vdd sg13_hv_pmos m=1 w=4.65u l=450.00n ng=1",
+        "MN0 net2 net4 vss sub! sg13_hv_nmos m=1 w=2.65u l=450.00n ng=1",
+        "MN1 core net2 vss sub! sg13_lv_nmos m=1 w=2.75u l=130.00n ng=1",
+        "MP1 core net2 vdd vdd sg13_lv_pmos m=1 w=4.75u l=130.00n ng=1",
+        "RCP0T_XR0 vss sub! 127.332 MODEL=ptap1 r=127.332 A=2.019p Perim=14.06u w=1.42u l=1.42u",
+        "XI0 net4 iovss pad iovdd sub! / sg13cmos5l_SecondaryProtection"
+      ]
+    },
+    "sg13cmos5l_DCPDiode": {
+      "pins": [
+        "anode",
+        "cathode",
+        "guard",
+        "sub!"
+      ],
+      "body": [
+        "DD1 anode cathode dpantenna m=1 w=1.26u l=27.78u a=35.003p p=58.08u",
+        "DD0 anode cathode dpantenna m=1 w=1.26u l=27.78u a=35.003p p=58.08u",
+        "RCP0T_XR0 guard sub! 17.289 MODEL=ptap1 r=17.289 A=33.5104p Perim=197.12u w=5.79u l=5.79u"
+      ]
+    },
+    "sg13cmos5l_DCNDiode": {
+      "pins": [
+        "anode",
+        "cathode",
+        "guard",
+        "sub!"
+      ],
+      "body": [
+        "DD1 sub! cathode dantenna m=1 w=1.26u l=27.78u a=35.003p p=58.08u",
+        "DD0 sub! cathode dantenna m=1 w=1.26u l=27.78u a=35.003p p=58.08u",
+        "RCP0T_XR0 anode sub! 5.191 MODEL=ptap1 r=5.191 A=141.2964p Perim=221.76u w=11.885u l=11.885u"
+      ]
+    },
+    "sg13cmos5l_IOPadIn": {
+      "pins": [
+        "iovdd",
+        "iovss",
+        "p2c",
+        "pad",
+        "vdd",
+        "vss",
+        "sub!"
+      ],
+      "body": [
+        "XI1 p2c iovdd iovss pad vdd vss sub! / sg13cmos5l_LevelDown",
+        "XI3 iovss pad iovdd sub! / sg13cmos5l_DCNDiode",
+        "XI2 pad iovdd iovss sub! / sg13cmos5l_DCPDiode",
+        "RCP0T_XR1 vss sub! 24.69 MODEL=ptap1 r=24.69 A=21.981p Perim=147.74u w=4.61u l=4.61u",
+        "RCP0T_XR2 iovss sub! 173.674m MODEL=ptap1 r=173.674m A=5379.0466p Perim=677.04u w=73.145u l=73.145u"
+      ]
+    },
+    "sg13cmos5l_Clamp_N8N8D": {
+      "pins": [
+        "gate",
+        "iovss",
+        "pad",
+        "sub!"
+      ],
+      "body": [
+        "RCP0T_XR0 iovss sub! 11.438 MODEL=ptap1 r=11.438 A=55.7736p Perim=328.08u w=7.47u l=7.47u",
+        "MN0 pad gate iovss sub! sg13_hv_nmos m=1 w=35.2u l=600.0n ng=8",
+        "DD0 sub! gate dantenna m=1 w=780.00n l=780.00n a=608.400f p=3.12u"
+      ]
+    },
+    "sg13cmos5l_Clamp_P8N8D": {
+      "pins": [
+        "gate",
+        "iovdd",
+        "iovss",
+        "pad",
+        "sub!"
+      ],
+      "body": [
+        "RCP0T_XR0 iovss sub! 9.826 MODEL=ptap1 r=9.826 A=67.0344p Perim=394.32u w=8.185u l=8.185u",
+        "MP0 pad gate iovdd iovdd sg13_hv_pmos m=1 w=106.56u l=600.0n ng=16",
+        "DD0 gate iovdd dpantenna m=1 w=480n l=480n a=230.4f p=1.92u"
+      ]
+    },
+    "sg13cmos5l_GateLevelUpInv": {
+      "pins": [
+        "core",
+        "iovdd",
+        "ngate",
+        "pgate",
+        "vdd",
+        "vss",
+        "sub!"
+      ],
+      "body": [
+        "XI1 core iovdd pgate vdd vss sub! / sg13cmos5l_LevelUpInv",
+        "XI0 core iovdd ngate vdd vss sub! / sg13cmos5l_LevelUpInv"
+      ]
+    },
+    "sg13cmos5l_IOPadOut16mA": {
+      "pins": [
+        "c2p",
+        "iovdd",
+        "iovss",
+        "pad",
+        "vdd",
+        "vss",
+        "sub!"
+      ],
+      "body": [
+        "XI6 c2p iovdd net2 net1 vdd vss sub! / sg13cmos5l_GateLevelUpInv",
+        "XI8 net1 iovdd iovss pad sub! / sg13cmos5l_Clamp_P8N8D",
+        "XI3 iovss pad iovdd sub! / sg13cmos5l_DCNDiode",
+        "XI7 net2 iovss pad sub! / sg13cmos5l_Clamp_N8N8D",
+        "XI2 pad iovdd iovss sub! / sg13cmos5l_DCPDiode",
+        "RCP0T_XR1 vss sub! 23.888 MODEL=ptap1 r=23.888 A=24.0p Perim=160.6u w=4.71u l=4.71u",
+        "RCP0T_XR2 iovss sub! 208.667m MODEL=ptap1 r=208.667m A=4313.4p Perim=594.62u w=66.56u l=66.56u"
+      ]
+    },
+    "sg13cmos5l_LevelUpInv": {
+      "pins": [
+        "i",
+        "iovdd",
+        "o",
+        "vdd",
+        "vss",
+        "sub!"
+      ],
+      "body": [
+        "MN0 net2 i vss sub! sg13_lv_nmos m=1 w=2.75u l=130.00n ng=1",
+        "MP0 net2 i vdd vdd sg13_lv_pmos m=1 w=4.75u l=130.00n ng=1",
+        "MN3 o net4 vss sub! sg13_hv_nmos m=1 w=1.9u l=450.00n ng=1",
+        "MN2 net4 net2 vss sub! sg13_hv_nmos m=1 w=1.9u l=450.00n ng=1",
+        "MN1 net3 i vss sub! sg13_hv_nmos m=1 w=1.9u l=450.00n ng=1",
+        "MP3 o net4 iovdd iovdd sg13_hv_pmos m=1 w=3.9u l=450.00n ng=1",
+        "MP2 net3 net4 iovdd iovdd sg13_hv_pmos m=1 w=300.0n l=450.00n ng=1",
+        "MP1 net4 net3 iovdd iovdd sg13_hv_pmos m=1 w=300.0n l=450.00n ng=1",
+        "RCP0T_XR0 vss sub! 190.268 MODEL=ptap1 r=190.268 A=1.053p Perim=7.62u w=1.025u l=1.025u"
+      ]
+    },
+    "sg13cmos5l_Clamp_N15N15D": {
+      "pins": [
+        "gate",
+        "iovss",
+        "pad",
+        "sub!"
+      ],
+      "body": [
+        "RCP0T_XR0 iovss sub! 11.438 MODEL=ptap1 r=11.438 A=55.7736p Perim=328.08u w=7.47u l=7.47u",
+        "MN0 pad gate iovss sub! sg13_hv_nmos m=1 w=66.000u l=600.0n ng=15",
+        "DD0 sub! gate dantenna m=1 w=780.00n l=780.00n a=608.400f p=3.12u"
+      ]
+    },
+    "sg13cmos5l_Clamp_P15N15D": {
+      "pins": [
+        "gate",
+        "iovdd",
+        "iovss",
+        "pad",
+        "sub!"
+      ],
+      "body": [
+        "DD0 gate iovdd dpantenna m=1 w=780.00n l=780.00n a=608.400f p=3.12u",
+        "RCP0T_XR0 iovss sub! 9.826 MODEL=ptap1 r=9.826 A=67.0344p Perim=394.32u w=8.185u l=8.185u",
+        "MP1 pad gate iovdd iovdd sg13_hv_pmos m=1 w=199.8u l=600.0n ng=30"
+      ]
+    },
+    "sg13cmos5l_GateDecode": {
+      "pins": [
+        "core",
+        "en",
+        "iovdd",
+        "ngate",
+        "pgate",
+        "vdd",
+        "vss",
+        "sub!"
+      ],
+      "body": [
+        "XI2 en net3 vdd vss sub! / sg13cmos5l_io_inv_x1",
+        "XI4 net4 iovdd ngate vdd vss sub! / sg13cmos5l_LevelUp",
+        "XI3 net2 iovdd pgate vdd vss sub! / sg13cmos5l_LevelUp",
+        "XI0 core net3 net4 vdd vss sub! / sg13cmos5l_io_nor2_x1",
+        "XI5 vdd vss sub! / sg13cmos5l_io_tie",
+        "XI1 core en net2 vdd vss sub! / sg13cmos5l_io_nand2_x1"
+      ]
+    },
+    "sg13cmos5l_IOPadInOut30mA": {
+      "pins": [
+        "c2p",
+        "c2p_en",
+        "iovdd",
+        "iovss",
+        "p2c",
+        "pad",
+        "vdd",
+        "vss",
+        "sub!"
+      ],
+      "body": [
+        "XI1 p2c iovdd iovss pad vdd vss sub! / sg13cmos5l_LevelDown",
+        "XI2 pad iovdd iovss sub! / sg13cmos5l_DCPDiode",
+        "XI7 net1 iovdd iovss pad sub! / sg13cmos5l_Clamp_P15N15D",
+        "XI3 iovss pad iovdd sub! / sg13cmos5l_DCNDiode",
+        "XI6 net2 iovss pad sub! / sg13cmos5l_Clamp_N15N15D",
+        "RCP0T_XR4 vss sub! 26.746 MODEL=ptap1 r=26.746 A=24.0p Perim=160.6u w=4.375u l=4.375u",
+        "RCP0T_XR3 iovss sub! 214.165m MODEL=ptap1 r=214.165m A=4319.178p Perim=671.66u w=65.675u l=65.675u",
+        "XI0 c2p c2p_en iovdd net2 net1 vdd vss sub! / sg13cmos5l_GateDecode"
+      ]
+    },
+    "sg13cmos5l_LevelUp": {
+      "pins": [
+        "i",
+        "iovdd",
+        "o",
+        "vdd",
+        "vss",
+        "sub!"
+      ],
+      "body": [
+        "MN0 net2 i vss sub! sg13_lv_nmos m=1 w=2.75u l=130.00n ng=1",
+        "MP0 net2 i vdd vdd sg13_lv_pmos m=1 w=4.75u l=130.00n ng=1",
+        "MN3 o net4 vss sub! sg13_hv_nmos m=1 w=1.9u l=450.00n ng=1",
+        "MN2 net4 i vss sub! sg13_hv_nmos m=1 w=1.9u l=450.00n ng=1",
+        "MN1 net3 net2 vss sub! sg13_hv_nmos m=1 w=1.9u l=450.00n ng=1",
+        "MP3 o net4 iovdd iovdd sg13_hv_pmos m=1 w=3.9u l=450.00n ng=1",
+        "MP2 net3 net4 iovdd iovdd sg13_hv_pmos m=1 w=300.0n l=450.00n ng=1",
+        "MP1 net4 net3 iovdd iovdd sg13_hv_pmos m=1 w=300.0n l=450.00n ng=1",
+        "RCP0T_XR0 vss sub! 207.099 MODEL=ptap1 r=207.099 A=0.9135p Perim=6.69u w=955n l=955n"
+      ]
+    },
+    "sg13cmos5l_io_inv_x1": {
+      "pins": [
+        "i",
+        "nq",
+        "vdd",
+        "vss",
+        "sub!"
+      ],
+      "body": [
+        "MN0 nq i vss sub! sg13_lv_nmos m=1 w=3.93u l=130.00n ng=1",
+        "MP0 nq i vdd vdd sg13_lv_pmos m=1 w=4.41u l=130.00n ng=1",
+        "RCP0T_XR0 vss sub! 258.978 MODEL=ptap1 r=258.978 A=0.624p Perim=4.76u w=790n l=790n"
+      ]
+    },
+    "sg13cmos5l_io_nand2_x1": {
+      "pins": [
+        "i0",
+        "i1",
+        "nq",
+        "vdd",
+        "vss",
+        "sub!"
+      ],
+      "body": [
+        "MP1 nq i1 vdd vdd sg13_lv_pmos m=1 w=4.41u l=130.00n ng=1",
+        "MP0 nq i0 vdd vdd sg13_lv_pmos m=1 w=4.41u l=130.00n ng=1",
+        "MN1 net1 i0 vss sub! sg13_lv_nmos m=1 w=3.93u l=130.00n ng=1",
+        "MN0 nq i1 net1 sub! sg13_lv_nmos m=1 w=3.93u l=130.00n ng=1",
+        "RCP0T_XR0 vss sub! 251.534 MODEL=ptap1 r=251.534 A=0.657p Perim=4.98u w=810n l=810n"
+      ]
+    },
+    "sg13cmos5l_io_nor2_x1": {
+      "pins": [
+        "i0",
+        "i1",
+        "nq",
+        "vdd",
+        "vss",
+        "sub!"
+      ],
+      "body": [
+        "MN0 nq i0 vss sub! sg13_lv_nmos m=1 w=3.93u l=130.00n ng=1",
+        "MN1 nq i1 vss sub! sg13_lv_nmos m=1 w=3.93u l=130.00n ng=1",
+        "MP1 net1 i0 vdd vdd sg13_lv_pmos m=1 w=4.41u l=130.00n ng=1",
+        "MP0 nq i1 net1 vdd sg13_lv_pmos m=1 w=4.41u l=130.00n ng=1",
+        "RCP0T_XR0 vss sub! 251.534 MODEL=ptap1 r=251.534 A=0.657p Perim=4.98u w=810n l=810n"
+      ]
+    },
+    "sg13cmos5l_io_tie": {
+      "pins": [
+        "vdd",
+        "vss",
+        "sub!"
+      ],
+      "body": [
+        "RCP0T_XR0 vss sub! 258.978 MODEL=ptap1 r=258.978 A=0.6255p Perim=4.77u w=790n l=790n"
+      ]
+    },
+    "sg13cmos5l_Clamp_N43N43D4R": {
+      "pins": [
+        "gate",
+        "pad",
+        "tie",
+        "sub!"
+      ],
+      "body": [
+        "MN0<1> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<2> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<3> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<4> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<5> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<6> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<7> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<8> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<9> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<10> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<11> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<12> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<13> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<14> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<15> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<16> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<17> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<18> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<19> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<20> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<21> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<22> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<23> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<24> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<25> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<26> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<27> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<28> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<29> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<30> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<31> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<32> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<33> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<34> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<35> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<36> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<37> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<38> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<39> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<40> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<41> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<42> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<43> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<44> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<45> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<46> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<47> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<48> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<49> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<50> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<51> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<52> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<53> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<54> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<55> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<56> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<57> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<58> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<59> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<60> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<61> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<62> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<63> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<64> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<65> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<66> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<67> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<68> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<69> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<70> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<71> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<72> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<73> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<74> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<75> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<76> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<77> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<78> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<79> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<80> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<81> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<82> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<83> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<84> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<85> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<86> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<87> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<88> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<89> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<90> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<91> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<92> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<93> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<94> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<95> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<96> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<97> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<98> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<99> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<100> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<101> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<102> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<103> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<104> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<105> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<106> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<107> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<108> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<109> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<110> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<111> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<112> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<113> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<114> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<115> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<116> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<117> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<118> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<119> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<120> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<121> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<122> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<123> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<124> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<125> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<126> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<127> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<128> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<129> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<130> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<131> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<132> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<133> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<134> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<135> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<136> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<137> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<138> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<139> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<140> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<141> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<142> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<143> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<144> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<145> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<146> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<147> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<148> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<149> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<150> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<151> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<152> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<153> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<154> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<155> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<156> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<157> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<158> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<159> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<160> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<161> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<162> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<163> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<164> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<165> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<166> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<167> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<168> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<169> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<170> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<171> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "MN0<172> pad gate tie sub! sg13_hv_nmos m=1 w=4.4u l=600.0n ng=1",
+        "RCP0T_XR0 tie sub! 9.999 MODEL=ptap1 r=9.999 A=65.6472p Perim=386.16u w=8.1u l=8.1u",
+        "DD0 sub! gate dantenna m=1 w=480n l=480n a=230.4f p=1.92u"
+      ]
+    },
+    "sg13cmos5l_IOPadVdd": {
+      "pins": [
+        "iovdd",
+        "iovss",
+        "vdd",
+        "vss",
+        "sub!"
+      ],
+      "body": [
+        "XI0 net2 vdd iovss sub! / sg13cmos5l_Clamp_N43N43D4R",
+        "XI2 vdd net1 sub! / sg13cmos5l_RCClampResistor",
+        "RCP0T_XR1 iovss sub! 456.33m MODEL=ptap1 r=456.33m A=1997.6623p Perim=411.58u w=44.385u l=44.385u",
+        "RCP0T_XR0 vss sub! 22.472 MODEL=ptap1 r=22.472 A=24.0p Perim=160.6u w=4.9u l=4.9u",
+        "XI1 net1 iovss net2 vdd sub! / sg13cmos5l_RCClampInverter"
+      ]
+    },
+    "sg13cmos5l_RCClampInverter": {
+      "pins": [
+        "in",
+        "iovss",
+        "out",
+        "supply",
+        "sub!"
+      ],
+      "body": [
+        "MN1 iovss in iovss sub! sg13_hv_nmos m=1 w=126.000u l=9.5u ng=14",
+        "MN0 out in iovss sub! sg13_hv_nmos m=1 w=108.000u l=500.0n ng=12",
+        "RCP0T_XR0 iovss sub! 9.59 MODEL=ptap1 r=9.59 A=69.122p Perim=406.6u w=8.305u l=8.305u",
+        "MP0 out in supply supply sg13_hv_pmos m=1 w=350.000u l=500.0n ng=50"
+      ]
+    },
+    "sg13cmos5l_RCClampResistor": {
+      "pins": [
+        "pin1",
+        "pin2",
+        "sub!"
+      ],
+      "body": [
+        "RR29 net15 net16 sub! rppd R=5.239K m=1 l=20u w=1u ps=0 trise=0.0 b=0",
+        "RR28 net20 net21 sub! rppd R=5.239K m=1 l=20u w=1u ps=0 trise=0.0 b=0",
+        "RR27 net23 net24 sub! rppd R=5.239K m=1 l=20u w=1u ps=0 trise=0.0 b=0",
+        "RR24 net17 net18 sub! rppd R=5.239K m=1 l=20u w=1u ps=0 trise=0.0 b=0",
+        "RR23 net16 net17 sub! rppd R=5.239K m=1 l=20u w=1u ps=0 trise=0.0 b=0",
+        "RR21 net25 pin2 sub! rppd R=5.239K m=1 l=20u w=1u ps=0 trise=0.0 b=0",
+        "RR20 net22 net23 sub! rppd R=5.239K m=1 l=20u w=1u ps=0 trise=0.0 b=0",
+        "RR19 net19 net20 sub! rppd R=5.239K m=1 l=20u w=1u ps=0 trise=0.0 b=0",
+        "RR17 net24 net25 sub! rppd R=5.239K m=1 l=20u w=1u ps=0 trise=0.0 b=0",
+        "RR16 net21 net22 sub! rppd R=5.239K m=1 l=20u w=1u ps=0 trise=0.0 b=0",
+        "RR15 net18 net19 sub! rppd R=5.239K m=1 l=20u w=1u ps=0 trise=0.0 b=0",
+        "RR14 net5 net6 sub! rppd R=5.239K m=1 l=20u w=1u ps=0 trise=0.0 b=0",
+        "RR13 net8 net9 sub! rppd R=5.239K m=1 l=20u w=1u ps=0 trise=0.0 b=0",
+        "RR12 net11 net12 sub! rppd R=5.239K m=1 l=20u w=1u ps=0 trise=0.0 b=0",
+        "RR11 net14 net15 sub! rppd R=5.239K m=1 l=20u w=1u ps=0 trise=0.0 b=0",
+        "RR10 net2 net3 sub! rppd R=5.239K m=1 l=20u w=1u ps=0 trise=0.0 b=0",
+        "RR9 net1 net2 sub! rppd R=5.239K m=1 l=20u w=1u ps=0 trise=0.0 b=0",
+        "RR8 net13 net14 sub! rppd R=5.239K m=1 l=20u w=1u ps=0 trise=0.0 b=0",
+        "RR7 net10 net11 sub! rppd R=5.239K m=1 l=20u w=1u ps=0 trise=0.0 b=0",
+        "RR6 net7 net8 sub! rppd R=5.239K m=1 l=20u w=1u ps=0 trise=0.0 b=0",
+        "RR5 net4 net5 sub! rppd R=5.239K m=1 l=20u w=1u ps=0 trise=0.0 b=0",
+        "RR4 net12 net13 sub! rppd R=5.239K m=1 l=20u w=1u ps=0 trise=0.0 b=0",
+        "RR3 net9 net10 sub! rppd R=5.239K m=1 l=20u w=1u ps=0 trise=0.0 b=0",
+        "RR2 net6 net7 sub! rppd R=5.239K m=1 l=20u w=1u ps=0 trise=0.0 b=0",
+        "RR1 net3 net4 sub! rppd R=5.239K m=1 l=20u w=1u ps=0 trise=0.0 b=0",
+        "RR0 pin1 net1 sub! rppd R=5.239K m=1 l=20u w=1u ps=0 trise=0.0 b=0"
+      ]
+    },
+    "sg13cmos5l_IOPadIOVdd": {
+      "pins": [
+        "iovdd",
+        "iovss",
+        "vdd",
+        "vss",
+        "sub!"
+      ],
+      "body": [
+        "XI0 net2 iovdd iovss sub! / sg13cmos5l_Clamp_N43N43D4R",
+        "XI2 iovdd net1 sub! / sg13cmos5l_RCClampResistor",
+        "XI1 net1 iovss net2 iovdd sub! / sg13cmos5l_RCClampInverter",
+        "RCP0T_XR1 iovss sub! 449.797m MODEL=ptap1 r=449.797m A=1997.9154p Perim=411.58u w=44.72u l=44.72u",
+        "RCP0T_XR0 vss sub! 22.832 MODEL=ptap1 r=22.832 A=24.0p Perim=160.6u w=4.85u l=4.85u"
+      ]
+    },
+    "sg13cmos5l_IOPadVss": {
+      "pins": [
+        "iovdd",
+        "iovss",
+        "vdd",
+        "vss",
+        "sub!"
+      ],
+      "body": [
+        "XI1 iovss vss iovss sub! / sg13cmos5l_DCNDiode",
+        "XI2 vss iovdd iovss sub! / sg13cmos5l_DCPDiode",
+        "RCP0T_XR1 iovss sub! 174.346m MODEL=ptap1 r=174.346m A=5379.0466p Perim=677.04u w=73u l=73u",
+        "RCP0T_XR0 vss sub! 22.832 MODEL=ptap1 r=22.832 A=24.0p Perim=160.6u w=4.85u l=4.85u"
+      ]
+    },
+    "sg13cmos5l_IOPadIOVss": {
+      "pins": [
+        "iovdd",
+        "iovss",
+        "vdd",
+        "vss",
+        "sub!"
+      ],
+      "body": [
+        "DD4 sub! iovss dantenna m=1 w=1.26u l=27.78u a=35.003p p=58.08u",
+        "DD2 sub! iovss dantenna m=1 w=1.26u l=27.78u a=35.003p p=58.08u",
+        "DD3 iovss iovdd dpantenna m=1 w=1.26u l=27.78u a=35.003p p=58.08u",
+        "DD1 iovss iovdd dpantenna m=1 w=1.26u l=27.78u a=35.003p p=58.08u",
+        "RCP0T_XR2 vss sub! 22.472 MODEL=ptap1 r=22.472 A=24.0p Perim=160.6u w=4.9u l=4.9u",
+        "RCP0T_XR0 iovss sub! 169.45m MODEL=ptap1 r=169.45m A=5553.8534p Perim=1095.92u w=74.075u l=74.075u"
+      ]
+    },
+    "sg13cmos5l_Filler1000": {
+      "pins": [
+        "iovdd",
+        "iovss",
+        "vdd",
+        "vss",
+        "sub!"
+      ],
+      "body": [
+        "RCP0T_TAP0 iovss sub! 2.443 MODEL=ptap1 r=2.443 A=110.52p Perim=58.12u w=18.13u l=18.13u",
+        "RCP0T_TAP1 iovss sub! 2.443 MODEL=ptap1 r=2.443 A=108.27p Perim=57.12u w=18.13u l=18.13u",
+        "RCP0T_TAP2 iovss sub! 2.443 MODEL=ptap1 r=2.443 A=110.475p Perim=58.1u w=18.13u l=18.13u",
+        "RCP0T_TAP3 vss sub! 162.013 MODEL=ptap1 r=162.013 A=1.368p Perim=9.72u w=1.17u l=1.17u"
+      ]
+    },
+    "sg13cmos5l_Filler400": {
+      "pins": [
+        "iovdd",
+        "iovss",
+        "vdd",
+        "vss",
+        "sub!"
+      ],
+      "body": [
+        "RCP0T_TAP0 iovss sub! 6.246 MODEL=ptap1 r=6.246 A=38.3136p Perim=52.24u w=10.685u l=10.685u",
+        "RCP0T_TAP1 iovss sub! 6.246 MODEL=ptap1 r=6.246 A=37.5336p Perim=51.24u w=10.685u l=10.685u",
+        "RCP0T_TAP2 iovss sub! 6.246 MODEL=ptap1 r=6.246 A=38.298p Perim=52.22u w=10.685u l=10.685u",
+        "RCP0T_TAP3 vss sub! 246.192 MODEL=ptap1 r=246.192 A=0.672p Perim=5.08u w=825n l=825n"
+      ]
+    },
+    "sg13cmos5l_Filler200": {
+      "pins": [
+        "iovdd",
+        "iovss",
+        "vdd",
+        "vss",
+        "sub!"
+      ],
+      "body": [
+        "RCP0T_TAP0 iovss sub! 14.724 MODEL=ptap1 r=14.724 A=13.7536p Perim=50.24u w=6.4u l=6.4u",
+        "RCP0T_TAP1 iovss sub! 14.724 MODEL=ptap1 r=14.724 A=13.4736p Perim=49.24u w=6.4u l=6.4u",
+        "RCP0T_TAP2 iovss sub! 14.724 MODEL=ptap1 r=14.724 A=13.748p Perim=50.22u w=6.4u l=6.4u",
+        "RCP0T_TAP3 vss sub! 246.192 MODEL=ptap1 r=246.192 A=0.678p Perim=5.12u w=825n l=825n"
+      ]
+    },
+    "sg13cmos5l_Corner": {
+      "pins": [
+        "iovdd",
+        "iovss",
+        "vdd",
+        "vss",
+        "sub!"
+      ],
+      "body": [
+        "RCP0T_TAP0 iovss sub! 93.041m MODEL=ptap1 r=93.041m A=4546.51p Perim=420.331u w=100.65u l=100.65u",
+        "RCP0T_TAP1 iovss sub! 93.041m MODEL=ptap1 r=93.041m A=3344.1864p Perim=326.866u w=100.65u l=100.65u",
+        "RCP0T_TAP2 iovss sub! 93.041m MODEL=ptap1 r=93.041m A=2278.0436p Perim=235.225u w=100.65u l=100.65u",
+        "RCP0T_TAP3 vss sub! 35.383 MODEL=ptap1 r=35.383 A=13.1934p Perim=84.704u w=3.63u l=3.63u"
+      ]
+    }
+  },
+  "origins": {
+    "sg13cmos5l_SecondaryProtection": [
+      {
+        "file": "io-pad-research/prepared/translated.cdl",
+        "sha256": "004831efc08a2cd2dda9a87704c4d506da68371b82920b9060e47d5e98c1689a"
+      },
+      {
+        "file": "Croc_CP0C_IO_Signal/validation/references/gpio/translated.cdl",
+        "sha256": "7f8ee8a705d62e9b9899273feef474d88929ba23264b1d6fccfb9d63e885f044"
+      }
+    ],
+    "sg13cmos5l_LevelDown": [
+      {
+        "file": "io-pad-research/prepared/translated.cdl",
+        "sha256": "004831efc08a2cd2dda9a87704c4d506da68371b82920b9060e47d5e98c1689a"
+      },
+      {
+        "file": "Croc_CP0C_IO_Signal/validation/references/gpio/translated.cdl",
+        "sha256": "7f8ee8a705d62e9b9899273feef474d88929ba23264b1d6fccfb9d63e885f044"
+      }
+    ],
+    "sg13cmos5l_DCPDiode": [
+      {
+        "file": "io-pad-research/prepared/translated.cdl",
+        "sha256": "004831efc08a2cd2dda9a87704c4d506da68371b82920b9060e47d5e98c1689a"
+      },
+      {
+        "file": "Croc_CP0C_IO_Signal/validation/references/output/translated.cdl",
+        "sha256": "99a2cc2b512e1ec16dde01df71f7eadfc8c40bfde9a22ee61d5427fdda81f61b"
+      },
+      {
+        "file": "Croc_CP0C_IO_Signal/validation/references/gpio/translated.cdl",
+        "sha256": "7f8ee8a705d62e9b9899273feef474d88929ba23264b1d6fccfb9d63e885f044"
+      },
+      {
+        "file": "Croc_CP0C_IO_Power/validation/geometry/vss/translated.cdl",
+        "sha256": "7c699eefe9f34317cd8b100d2264359831e58a6d62f8cabada22a4ac3ea30318"
+      }
+    ],
+    "sg13cmos5l_DCNDiode": [
+      {
+        "file": "io-pad-research/prepared/translated.cdl",
+        "sha256": "004831efc08a2cd2dda9a87704c4d506da68371b82920b9060e47d5e98c1689a"
+      },
+      {
+        "file": "Croc_CP0C_IO_Signal/validation/references/output/translated.cdl",
+        "sha256": "99a2cc2b512e1ec16dde01df71f7eadfc8c40bfde9a22ee61d5427fdda81f61b"
+      },
+      {
+        "file": "Croc_CP0C_IO_Signal/validation/references/gpio/translated.cdl",
+        "sha256": "7f8ee8a705d62e9b9899273feef474d88929ba23264b1d6fccfb9d63e885f044"
+      },
+      {
+        "file": "Croc_CP0C_IO_Power/validation/geometry/vss/translated.cdl",
+        "sha256": "7c699eefe9f34317cd8b100d2264359831e58a6d62f8cabada22a4ac3ea30318"
+      }
+    ],
+    "sg13cmos5l_IOPadIn": [
+      {
+        "file": "io-pad-research/prepared/translated.cdl",
+        "sha256": "004831efc08a2cd2dda9a87704c4d506da68371b82920b9060e47d5e98c1689a"
+      }
+    ],
+    "sg13cmos5l_Clamp_N8N8D": [
+      {
+        "file": "Croc_CP0C_IO_Signal/validation/references/output/translated.cdl",
+        "sha256": "99a2cc2b512e1ec16dde01df71f7eadfc8c40bfde9a22ee61d5427fdda81f61b"
+      }
+    ],
+    "sg13cmos5l_Clamp_P8N8D": [
+      {
+        "file": "Croc_CP0C_IO_Signal/validation/references/output/translated.cdl",
+        "sha256": "99a2cc2b512e1ec16dde01df71f7eadfc8c40bfde9a22ee61d5427fdda81f61b"
+      }
+    ],
+    "sg13cmos5l_GateLevelUpInv": [
+      {
+        "file": "Croc_CP0C_IO_Signal/validation/references/output/translated.cdl",
+        "sha256": "99a2cc2b512e1ec16dde01df71f7eadfc8c40bfde9a22ee61d5427fdda81f61b"
+      }
+    ],
+    "sg13cmos5l_IOPadOut16mA": [
+      {
+        "file": "Croc_CP0C_IO_Signal/validation/references/output/translated.cdl",
+        "sha256": "99a2cc2b512e1ec16dde01df71f7eadfc8c40bfde9a22ee61d5427fdda81f61b"
+      }
+    ],
+    "sg13cmos5l_LevelUpInv": [
+      {
+        "file": "Croc_CP0C_IO_Signal/validation/references/output/translated.cdl",
+        "sha256": "99a2cc2b512e1ec16dde01df71f7eadfc8c40bfde9a22ee61d5427fdda81f61b"
+      }
+    ],
+    "sg13cmos5l_Clamp_N15N15D": [
+      {
+        "file": "Croc_CP0C_IO_Signal/validation/references/gpio/translated.cdl",
+        "sha256": "7f8ee8a705d62e9b9899273feef474d88929ba23264b1d6fccfb9d63e885f044"
+      }
+    ],
+    "sg13cmos5l_Clamp_P15N15D": [
+      {
+        "file": "Croc_CP0C_IO_Signal/validation/references/gpio/translated.cdl",
+        "sha256": "7f8ee8a705d62e9b9899273feef474d88929ba23264b1d6fccfb9d63e885f044"
+      }
+    ],
+    "sg13cmos5l_GateDecode": [
+      {
+        "file": "Croc_CP0C_IO_Signal/validation/references/gpio/translated.cdl",
+        "sha256": "7f8ee8a705d62e9b9899273feef474d88929ba23264b1d6fccfb9d63e885f044"
+      }
+    ],
+    "sg13cmos5l_IOPadInOut30mA": [
+      {
+        "file": "Croc_CP0C_IO_Signal/validation/references/gpio/translated.cdl",
+        "sha256": "7f8ee8a705d62e9b9899273feef474d88929ba23264b1d6fccfb9d63e885f044"
+      }
+    ],
+    "sg13cmos5l_LevelUp": [
+      {
+        "file": "Croc_CP0C_IO_Signal/validation/references/gpio/translated.cdl",
+        "sha256": "7f8ee8a705d62e9b9899273feef474d88929ba23264b1d6fccfb9d63e885f044"
+      }
+    ],
+    "sg13cmos5l_io_inv_x1": [
+      {
+        "file": "Croc_CP0C_IO_Signal/validation/references/gpio/translated.cdl",
+        "sha256": "7f8ee8a705d62e9b9899273feef474d88929ba23264b1d6fccfb9d63e885f044"
+      }
+    ],
+    "sg13cmos5l_io_nand2_x1": [
+      {
+        "file": "Croc_CP0C_IO_Signal/validation/references/gpio/translated.cdl",
+        "sha256": "7f8ee8a705d62e9b9899273feef474d88929ba23264b1d6fccfb9d63e885f044"
+      }
+    ],
+    "sg13cmos5l_io_nor2_x1": [
+      {
+        "file": "Croc_CP0C_IO_Signal/validation/references/gpio/translated.cdl",
+        "sha256": "7f8ee8a705d62e9b9899273feef474d88929ba23264b1d6fccfb9d63e885f044"
+      }
+    ],
+    "sg13cmos5l_io_tie": [
+      {
+        "file": "Croc_CP0C_IO_Signal/validation/references/gpio/translated.cdl",
+        "sha256": "7f8ee8a705d62e9b9899273feef474d88929ba23264b1d6fccfb9d63e885f044"
+      }
+    ],
+    "sg13cmos5l_Clamp_N43N43D4R": [
+      {
+        "file": "Croc_CP0C_IO_Power/validation/geometry/vdd/translated.cdl",
+        "sha256": "ec08b12712772b1d6a5cbd4ba0c2eb3c60e8985cf98a4153d94001f5e8d23e3a"
+      },
+      {
+        "file": "Croc_CP0C_IO_Power/validation/geometry/iovdd/translated.cdl",
+        "sha256": "b7aafaca98dd2161f09e455f22da6ee9455267dcf1216e4a98823e240a66a49e"
+      }
+    ],
+    "sg13cmos5l_IOPadVdd": [
+      {
+        "file": "Croc_CP0C_IO_Power/validation/geometry/vdd/translated.cdl",
+        "sha256": "ec08b12712772b1d6a5cbd4ba0c2eb3c60e8985cf98a4153d94001f5e8d23e3a"
+      }
+    ],
+    "sg13cmos5l_RCClampInverter": [
+      {
+        "file": "Croc_CP0C_IO_Power/validation/geometry/vdd/translated.cdl",
+        "sha256": "ec08b12712772b1d6a5cbd4ba0c2eb3c60e8985cf98a4153d94001f5e8d23e3a"
+      },
+      {
+        "file": "Croc_CP0C_IO_Power/validation/geometry/iovdd/translated.cdl",
+        "sha256": "b7aafaca98dd2161f09e455f22da6ee9455267dcf1216e4a98823e240a66a49e"
+      }
+    ],
+    "sg13cmos5l_RCClampResistor": [
+      {
+        "file": "Croc_CP0C_IO_Power/validation/geometry/vdd/translated.cdl",
+        "sha256": "ec08b12712772b1d6a5cbd4ba0c2eb3c60e8985cf98a4153d94001f5e8d23e3a"
+      },
+      {
+        "file": "Croc_CP0C_IO_Power/validation/geometry/iovdd/translated.cdl",
+        "sha256": "b7aafaca98dd2161f09e455f22da6ee9455267dcf1216e4a98823e240a66a49e"
+      }
+    ],
+    "sg13cmos5l_IOPadIOVdd": [
+      {
+        "file": "Croc_CP0C_IO_Power/validation/geometry/iovdd/translated.cdl",
+        "sha256": "b7aafaca98dd2161f09e455f22da6ee9455267dcf1216e4a98823e240a66a49e"
+      }
+    ],
+    "sg13cmos5l_IOPadVss": [
+      {
+        "file": "Croc_CP0C_IO_Power/validation/geometry/vss/translated.cdl",
+        "sha256": "7c699eefe9f34317cd8b100d2264359831e58a6d62f8cabada22a4ac3ea30318"
+      }
+    ],
+    "sg13cmos5l_IOPadIOVss": [
+      {
+        "file": "Croc_CP0C_IO_Power/validation/geometry/iovss/translated.cdl",
+        "sha256": "4f3701199f50810b6cadfc45ebe22564a3ee8da3e907a6b80642eff3f630e314"
+      }
+    ],
+    "sg13cmos5l_Filler1000": [
+      {
+        "file": "Croc_CP0C_IO_Fill/validation/geometry/filler1000/boundary.cdl",
+        "sha256": "a95b519fb39bc7d25422e5bf022baf5fd38be626e45d1aa0dd1692cfbd2ee456"
+      }
+    ],
+    "sg13cmos5l_Filler400": [
+      {
+        "file": "Croc_CP0C_IO_Fill/validation/geometry/filler400/boundary.cdl",
+        "sha256": "60d9a718d9a0bd0bb8bff913b054012c3974d7291d304f04cbeccc3b7d20459c"
+      }
+    ],
+    "sg13cmos5l_Filler200": [
+      {
+        "file": "Croc_CP0C_IO_Fill/validation/geometry/filler200/boundary.cdl",
+        "sha256": "87e0b88f79f0e4c932c76e1a6f9969fdc15daa1200d495381f5e274760d84992"
+      }
+    ],
+    "sg13cmos5l_Corner": [
+      {
+        "file": "Croc_CP0C_IO_Fill/validation/geometry/corner/boundary.cdl",
+        "sha256": "ebab38721b61abbbf047c6a4827859d05d6ddee24b3aa3e78a894760773cb5d5"
+      }
+    ]
+  },
+  "physical_fingerprints": {
+    "sg13cmos5l_Clamp_N15N15D": "40f49dda174aa5ed3ca8271b8867380dcd61acb83f968bd9808be29f751931a7",
+    "sg13cmos5l_Clamp_N43N43D4R": "c334fe6dd5094bf1edc17aa558cf6559eec08a69358599f61e544f86acbad2a6",
+    "sg13cmos5l_Clamp_N8N8D": "b44dd03b8a74bbc6ca1e914e91f3eae14b0b855d738706cdbd4daaa46dcfc3a1",
+    "sg13cmos5l_Clamp_P15N15D": "e632dd64175f4ac784e6593bb16e6af011655819185facf9249c81ab143fe3d3",
+    "sg13cmos5l_Clamp_P8N8D": "a3b24a80dab77fc4a4c687a7b5178c91460c1015316f5c27555e4cf6a1682749",
+    "sg13cmos5l_Corner": "baac8bd77f396d41fb9504fcfa760169ae5067707b361424bb4bd155e4f5d14c",
+    "sg13cmos5l_DCNDiode": "94989ae71407bf4d821e9fc8333c4a46bcc226a183601e94f4e8ae4aa83c2bca",
+    "sg13cmos5l_DCPDiode": "98713d39753470ceddbd22738f0fa0d53fec0407b91f07315d36f0593eb1d886",
+    "sg13cmos5l_Filler1000": "edd4907fdfba2778bf9dde826ba1e8c887dd133e04de66a447bef0a6da571f22",
+    "sg13cmos5l_Filler200": "975bc74e316db2fa541d3b53d93b9e7aaed12b739d44aee714b1b8686fe89d8b",
+    "sg13cmos5l_Filler400": "ac4e0d1d2e3a3e8b3fdb25d9f95d57cb23e535ba2c7c702c1649bcdc1b9d62c2",
+    "sg13cmos5l_GateDecode": "5cf778b247ab8fd9ec8a4b97db25575bcadd8275f7b3e2a7d4790f322d181be3",
+    "sg13cmos5l_GateLevelUpInv": "e986629c246cc57c4840e3b0b91471b50524f77d15f61b9a30c3a26f7916ed11",
+    "sg13cmos5l_IOPadIOVdd": "9ec77013e5441a7726f69dec5503a84599a82313447c82eb8572d8bcd9b72305",
+    "sg13cmos5l_IOPadIOVss": "2de5b90978df9f387594d36572019c3d68ee9e4627e161883499bd55e772d322",
+    "sg13cmos5l_IOPadIn": "1084ae3b13f55d455d829946179388d344c63d937ce926ebc9d088833f284394",
+    "sg13cmos5l_IOPadInOut30mA": "60c79c4b74b5f798548e02cb13e4d4a98fb2299d61b7f05aa1ab45888c1f56dc",
+    "sg13cmos5l_IOPadOut16mA": "0af52ac7ee3d2a5ee9d995b9e88fc5609325ac71fb9d1a0d5c8d95869a832cd1",
+    "sg13cmos5l_IOPadVdd": "66c3658b459a0bc0c1edffd4aea6793f1178448d405da9bd487adea5f9423f6a",
+    "sg13cmos5l_IOPadVss": "6338282929dc6165762ffc278b48495f3efa9740670451065eaa0cbfee08bf37",
+    "sg13cmos5l_LevelDown": "3d304efcc9e843f5543a8588bfaaf5758a27c1f5bf3be466b2b089a3916b6fd6",
+    "sg13cmos5l_LevelUp": "d4c53e596c6d3a7bc4698794850713f0425dd925a67f9c82212e6dac94cb0c0a",
+    "sg13cmos5l_LevelUpInv": "f2bdde533b0a6de2092af3588b7ce2b76630f8b4c343da0bacf2880c749fa427",
+    "sg13cmos5l_RCClampInverter": "acbe2c50f06af784d673d077d9d4aa919b9d56880121e4036e3a90067b9626d0",
+    "sg13cmos5l_RCClampResistor": "caea29184b28582d829fc2f6b9817caf02c17467a9840f05c1193ed533fb14d5",
+    "sg13cmos5l_SecondaryProtection": "16ea3a853d8f531bf47ef6fa0ee9b57c0872897cb36dfb4b0f3dfbd6dfb842ab",
+    "sg13cmos5l_io_inv_x1": "20febe69bf750d95d07d622dfd49399467e6e70719ccf4e6978870886edecc2b",
+    "sg13cmos5l_io_nand2_x1": "1732e77dbfa7a58e0382162f6b6f0316cc94cc26d5c427fc95df9a2a74da18c9",
+    "sg13cmos5l_io_nor2_x1": "215220a6e2b7fc62ea49e9ac1c0afddc986802b01f08213300c4d56978949bcd",
+    "sg13cmos5l_io_tie": "681f5c1216aeb0b03ec69060787de548255197b3b3e2e833cffcc9de09d022d9"
+  },
+  "reference_scope": "Previously validated cell-specific annotations; explicit substrate propagation; not vendor signoff",
+  "fingerprint_encoding": "sha256 of canonical JSON: sort_keys=True, separators comma/colon, ASCII default"
+}

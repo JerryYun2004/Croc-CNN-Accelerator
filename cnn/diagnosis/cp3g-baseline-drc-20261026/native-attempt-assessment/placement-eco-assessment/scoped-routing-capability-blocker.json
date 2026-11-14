@@ -1,0 +1,66 @@
+{
+  "status": "BLOCKED_SCOPE_AND_RULE_ENFORCEMENT_NOT_CONFIRMED",
+  "tool": "26Q4-585-gc463e9986",
+  "authorized_scope": {
+    "cell": "cp3d_fanout_buf_22022203",
+    "origin_um": [
+      1366.08,
+      1050.84
+    ],
+    "orientation": "N",
+    "master": "sg13g2_buf_4",
+    "mutable_signal_nets": [
+      "net938",
+      "cp3d_fanout_net_22022203"
+    ],
+    "clock_geometry": "UNCHANGED",
+    "all_other_cells_and_routes": "UNCHANGED",
+    "power_grid": "UNCHANGED",
+    "NDR_clock_spacing_um": 0.56
+  },
+  "findings": [
+    {
+      "source": "grt/src/GlobalRouter.tcl:358 and GlobalRouter.cpp:5078",
+      "finding": "set_nets_to_route selects global-routing nets. Does not provide a detailed-router mutation whitelist."
+    },
+    {
+      "source": "drt/src/TritonRoute.tcl:4,176",
+      "finding": "detailed_route has no production net whitelist/freeze-preserving-NDR option. detailed_route_debug -net/-box controls debugging, not a certified scope restriction."
+    },
+    {
+      "source": "drt/src/io/io.cpp:723,3810,4141; dr/FlexDR_init.cpp:2655",
+      "finding": "FIXED input wires are imported as fixed nets, cannot normally be ripped up and are skipped during output wire replacement. This offers a locking mechanism but changes the geometry classification."
+    },
+    {
+      "source": "drt/src/gc/FlexGC_init.cpp:294,314; gc/FlexGC_main.cpp:496",
+      "finding": "Fixed net classification propagates to checker polygons. NDR spacing contributions are conditional on !rect->isFixed(). Therefore blanket FIXED conversion does not preserve the original active clock-NDR checking semantics; not accepted as equivalent enforcement."
+    },
+    {
+      "source": "drt/src/dr/FlexDR_init.cpp and io/GuideProcessor.cpp",
+      "finding": "Guide presence participates in routing eligibility but selective guide files are not a confirmed production preservation contract. Not used as an assumed lock."
+    }
+  ],
+  "missing_capability": "Confirmed detailed-router two-net allowlist or immutable-wire lock retaining original NDR semantics and all unrelated geometry. Post-run comparison can reject excess changes but does not itself constrain the routing engine.",
+  "decision": "No isolated routing candidate, command, or fallback prepared. Do not infer that physical repair is impossible; scope enforcement is not certified with the inspected interfaces.",
+  "scope_changes_applied": [],
+  "EDA_runs": 0,
+  "no_custom_router": true,
+  "previous_runtime_discrepancy": "UNRESOLVED",
+  "proposed_limits_if_supported": {
+    "eco_seconds": 600,
+    "drc_seconds": 300,
+    "retries": 0,
+    "timing_records": [
+      "wall-clock timestamps",
+      "monotonic elapsed"
+    ]
+  },
+  "pending": [
+    "two fresh-only spacing markers",
+    "extracted timing",
+    "electrical checks",
+    "0.1ns hold target",
+    "CP3G acceptance/signoff",
+    "CP0C_ELECTRICAL_PENDING"
+  ]
+}

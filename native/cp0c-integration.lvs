@@ -1,0 +1,90 @@
+# Fresh extraction of the complete chip. Only the disposable input has markers.
+threads(2)
+# %include sg13cmos5l.lvs
+require 'json'
+def cp0i_assert(ok,message); raise message unless ok; end
+def cp0i_all(object,method); a=[];object.send(method) { |x| a << x };a;end
+def cp0i_inventory(c)
+  {name:c.name,nets:cp0i_all(c,:each_net).map(&:expanded_name).sort,
+   pins:cp0i_all(c,:each_pin).map { |p| [p.name,c.net_for_pin(p.id)&.expanded_name] },
+   devices:cp0i_all(c,:each_device).map do |d|
+     cl=d.device_class
+     {name:d.expanded_name,model:cl.name,
+      parameters:cl.parameter_definitions.to_h { |p| [p.name,d.parameter(p.id)] },
+      terminals:cl.terminal_definitions.to_h { |t| [t.name,d.net_for_terminal(t.id)&.expanded_name] }}
+   end}
+end
+def cp0i_summary(nl)
+  cp0i_all(nl,:each_circuit).to_h do |c|
+    [c.name,{pins:cp0i_all(c,:each_pin).size,nets:cp0i_all(c,:each_net).size,
+     devices:cp0i_all(c,:each_device).each_with_object(Hash.new(0)) { |d,h| h[d.device_class.name]+=1 },
+     children:cp0i_all(c,:each_subcircuit).each_with_object(Hash.new(0)) { |s,h| h[s.circuit_ref.name]+=1 }}]
+  end
+end
+def cp0i_boundaries(nl)
+  parents=Hash.new { |h,k| h[k]=[] };rows=[]
+  nl.each_circuit { |c| c.each_subcircuit { |s| parents[s.circuit_ref.name] << [c,s] } }
+  nl.each_circuit do |c|
+    next unless c.name.downcase.start_with?('sg13cmos5l_')
+    groups=cp0i_all(c,:each_pin).group_by(&:name);suspects=[]
+    groups.each do |name,ps|
+      next if !name.empty? && ps.size==1
+      ns=ps.map { |p| c.net_for_pin(p.id) }
+      traces=parents[c.name].map do |pc,sc|
+        pn=ps.map { |p| sc.net_for_pin(p.id) };ids=pn.map { |n| n&.cluster_id }
+        {parent:pc.name,instance:sc.expanded_name,nets:pn.map { |n| n&.expanded_name },clusters:ids,
+         all_connected:pn.none?(&:nil?),one_parent_net:pn.none?(&:nil?) && ids.uniq.size==1,
+         parent_port_names:pn.map { |n| cp0i_all(pc,:each_pin).select { |p| !n.nil? && pc.net_for_pin(p.id)&.cluster_id==n.cluster_id }.map(&:name) }}
+      end
+      suspects << {pin_name:name,pin_ids:ps.map(&:id),local_nets:ns.map { |n| n&.expanded_name },
+                   local_clusters:ns.map { |n| n&.cluster_id },parent_connections:traces}
+    end
+    rows << {cell:c.name,suspect_groups:suspects}
+  end
+  {cells:rows,net_joins:0}
+end
+
+cp0i_assert(NET_ONLY && !SIMPLIFY && !COMBINE_DEVICES && !PURGE && !PURGE_NETS,
+            'Unexpected automatic simplification switches')
+cp0i_assert(!DISABLE_TAP_EXTRACTION && !IGNORE_TOP_PORTS_MISMATCH && IMPLICIT_NETS.empty?,
+            'Unexpected waiver/implicit-net switch')
+cp0i_assert(PARALLEL_RES && !SERIES_RES,'Poly resistor series reduction must stay disabled')
+cfg=JSON.parse(File.read($cp0i_config));output=cfg.fetch('output')
+state=lvs_data;nl=netlist
+cp0i_assert(nl.top_circuits.size==1 && nl.top_circuit.name==cfg.fetch('top'),'Wrong extraction top')
+errors=cp0i_all(state,:each_error).map(&:to_s)
+File.write(File.join(output,'extraction-errors.json'),JSON.pretty_generate(errors)+"\n")
+cp0i_assert(errors.empty?,'Fresh extraction reports errors')
+schematic(cfg.fetch('reference'),RBA::NetlistSpiceReader.new(CustomReader.new))
+File.write(File.join(output,'before-alignment.json'),JSON.pretty_generate({layout:cp0i_summary(nl),reference:cp0i_summary(schematic)})+"\n")
+align
+# Same alignment/simplification sequence as the repaired SRAM baseline. The
+# custom three-terminal IO resistor series combiner remains disabled so all
+# 26 RC resistor bodies stay visible. Native metal resistors retain their
+# baseline DeviceClassResistor reduction behavior.
+nl.simplify;schematic.simplify
+nl.make_top_level_pins;schematic.make_top_level_pins
+cp0i_assert(nl.top_circuits.size==1 && schematic.top_circuits.size==1,'Ambiguous chip top after alignment')
+File.write(File.join(output,'fresh-boundaries.json'),JSON.pretty_generate(cp0i_boundaries(nl))+"\n")
+File.write(File.join(output,'aligned-inventory.json'),JSON.pretty_generate({layout:cp0i_summary(nl),reference:cp0i_summary(schematic)})+"\n")
+state.reference=schematic
+state.write(File.join(output,'aligned.lvsdb'))
+# Substitute the IO hierarchy through its ACTUAL chip parent connections. This
+# neither joins nets by name nor creates rails/straps. Standard cells and SRAM
+# remain hierarchical. Their contents will also be compared, not black-boxed.
+report={}
+[['layout',nl],['reference',schematic]].each do |side,n|
+  io=cp0i_all(n,:each_circuit).select { |c| c.name.downcase.start_with?('sg13cmos5l_') }
+  cp0i_assert(!io.empty?,'No IO circuits to integrate')
+  n.flatten_circuits(io);c=n.top_circuit
+  before=cp0i_inventory(c);c.combine_devices;after=cp0i_inventory(c)
+  report[side]={before_combine:before,after_combine:after}
+end
+File.write(File.join(output,'io-reduction.json'),JSON.pretty_generate(report)+"\n")
+File.write(File.join(output,'prepared-inventory.json'),JSON.pretty_generate({layout:cp0i_summary(nl),reference:cp0i_summary(schematic)})+"\n")
+state.reference=schematic
+state.write(File.join(output,'prepared.lvsdb'))
+File.write(File.join(output,'extraction.json'),JSON.pretty_generate({status:'FULL_CHIP_EXTRACTION_COMPLETE',
+ top:cfg.fetch('top'),new_extraction:true,net_joins:0,implicit_connections:[],blackboxes:[],
+ source_geometry_changed:false,reference_scope:'Annotated diagnostic reference',cp0c:'PENDING'})+"\n")
+puts 'CP0C_INTEGRATION_EXTRACTION_COMPLETE'

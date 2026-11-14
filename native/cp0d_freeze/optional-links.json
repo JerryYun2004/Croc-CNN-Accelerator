@@ -1,0 +1,44 @@
+{
+  "format_version": 1,
+  "scope": "Only these optional tool-support link paths and exact targets may remain unresolved. Required baseline input checks are unchanged.",
+  "links": {
+    "ihp13/sg13cmos5l/libs.tech/ngspice/osdi/mosvar.osdi": {
+      "target": "../../../../ihp-sg13g2/libs.tech/ngspice/osdi/mosvar.osdi",
+      "source_url": "https://github.com/IHP-GmbH/ihp-sg13cmos5l/blob/43ac6216df29c043f97d462706f98a91fa70e3ea/libs.tech/ngspice/osdi/mosvar.osdi",
+      "blob_sha": "8e275aedc63a867eaedf2979a8a054bbb387a135"
+    },
+    "ihp13/sg13cmos5l/libs.tech/ngspice/osdi/psp103.osdi": {
+      "target": "../../../../ihp-sg13g2/libs.tech/ngspice/osdi/psp103.osdi",
+      "source_url": "https://github.com/IHP-GmbH/ihp-sg13cmos5l/blob/43ac6216df29c043f97d462706f98a91fa70e3ea/libs.tech/ngspice/osdi/psp103.osdi",
+      "blob_sha": "a161715d2fab3411804d8423225e80f004a3b196"
+    },
+    "ihp13/sg13cmos5l/libs.tech/ngspice/osdi/psp103_nqs.osdi": {
+      "target": "../../../../ihp-sg13g2/libs.tech/ngspice/osdi/psp103_nqs.osdi",
+      "source_url": "https://github.com/IHP-GmbH/ihp-sg13cmos5l/blob/43ac6216df29c043f97d462706f98a91fa70e3ea/libs.tech/ngspice/osdi/psp103_nqs.osdi",
+      "blob_sha": "43d9cde2ab723c8a15d90db0f0155278cac1d336"
+    },
+    "ihp13/sg13cmos5l/libs.tech/ngspice/osdi/r3_cmc.osdi": {
+      "target": "../../../../ihp-sg13g2/libs.tech/ngspice/osdi/r3_cmc.osdi",
+      "source_url": "https://github.com/IHP-GmbH/ihp-sg13cmos5l/blob/43ac6216df29c043f97d462706f98a91fa70e3ea/libs.tech/ngspice/osdi/r3_cmc.osdi",
+      "blob_sha": "52e872224c18a53293e72dbe93dd6ae7d1fac54e"
+    },
+    "ihp13/sg13cmos5l/libs.tech/xyce/plugins/Xyce_Plugin_PSP103_VA.so": {
+      "target": "../../../../ihp-sg13g2/libs.tech/xyce/plugins/Xyce_Plugin_PSP103_VA.so",
+      "source_url": "https://github.com/IHP-GmbH/ihp-sg13cmos5l/blob/43ac6216df29c043f97d462706f98a91fa70e3ea/libs.tech/xyce/plugins/Xyce_Plugin_PSP103_VA.so",
+      "blob_sha": "734639263fad152ea1b1fd86510b234c01800eb6"
+    },
+    "ihp13/sg13cmos5l/libs.tech/xyce/plugins/Xyce_Plugin_r3_cmc.so": {
+      "target": "../../../../ihp-sg13g2/libs.tech/xyce/plugins/Xyce_Plugin_r3_cmc.so",
+      "source_url": "https://github.com/IHP-GmbH/ihp-sg13cmos5l/blob/43ac6216df29c043f97d462706f98a91fa70e3ea/libs.tech/xyce/plugins/Xyce_Plugin_r3_cmc.so",
+      "blob_sha": "acb4f838e804a8aed588b8cfd03e2854cf9c63da"
+    },
+    "ihp13/ihp-sg13g2/libs.tech/qucs-s/symbols_stdcell": {
+      "target": "/home/rahman/temp/IHP-Open-PDK/ihp-sg13g2/libs.ref/sg13g2_stdcell/sym/qucs-s",
+      "source_url": "https://github.com/IHP-GmbH/IHP-Open-PDK/blob/c1d6f49ea902a88e328dda022805da8887ea26e3/ihp-sg13g2/libs.tech/qucs-s/symbols_stdcell"
+    },
+    "ihp13/sg13g2/ihp-sg13g2/libs.tech/qucs-s/symbols_stdcell": {
+      "target": "/home/rahman/temp/IHP-Open-PDK/ihp-sg13g2/libs.ref/sg13g2_stdcell/sym/qucs-s",
+      "source_url": "https://github.com/IHP-GmbH/IHP-Open-PDK/blob/c1d6f49ea902a88e328dda022805da8887ea26e3/ihp-sg13g2/libs.tech/qucs-s/symbols_stdcell"
+    }
+  }
+}

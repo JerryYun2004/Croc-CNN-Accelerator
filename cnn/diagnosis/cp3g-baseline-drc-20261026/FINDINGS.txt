@@ -1,0 +1,4 @@
+Current DRC evidence: completed native full-design check; one Metal2 spacing marker on cp3d_fanout_net_30763077 at (557.685,840.985)-(557.885,841.115).
+The empty focused-box report did not clear the reproduced full-design violation. Do not rerun unchanged inputs.
+Hold margin 0.1 ns failed separately in Linux characterization. CP3G/native acceptance, calibrated extraction, signoff and CP0C_ELECTRICAL_PENDING remain unresolved.
+All saved launchers originally address the temporary directory; retained verbatim as historical evidence, not instructions to rerun.

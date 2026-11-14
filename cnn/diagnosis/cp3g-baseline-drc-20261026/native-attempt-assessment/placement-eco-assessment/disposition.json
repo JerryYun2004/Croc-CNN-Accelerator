@@ -1,0 +1,45 @@
+{
+  "status": "PREPARATION_BLOCKED_NO_CANDIDATE",
+  "routing_only_investigation": "CLOSED",
+  "source_candidate": "cp3g-native-baseline-20261026-141130-4hob7_j3",
+  "source_status": "DRC_FAIL",
+  "source_def_sha256": "0d19b01227774abc7fa36ab222b2dc8808e1d9f3cc5da3bbb6e2c50538b704da",
+  "target": "cp3d_fanout_buf_22022203",
+  "master": "sg13g2_buf_4",
+  "original_placement_um": [
+    1367.52,
+    1050.84
+  ],
+  "screened_placement_um": [
+    1366.08,
+    1050.84
+  ],
+  "orientation": "N",
+  "screening": "row-aligned 3.840x3.780um footprint; no other cell movements; signal landing screening only, not validated overall legality",
+  "authorized_changes_applied": [],
+  "clock_changes_applied": [],
+  "signal_nets_requiring_reconnection": [
+    "net938 (input A)",
+    "cp3d_fanout_net_22022203 (output X, five retained loads)"
+  ],
+  "power_impact": "VDD/VSS pin geometry moves with cell. Same-row continuous supply rail connections must be retained and verified. No PDN edits authorized or applied.",
+  "blocked_output": "Proposed new output trunk x1367.520 has0.075um clearance to fixed VSS Metal2 via enclosure (1367.695,1050.695)-(1368.305,1050.985), repeated at y1058.400; below0.210um base spacing. Lower reconnection also only0.175um clear.",
+  "blocked_input": "Proposed input Metal3 overpass y1051.680 from x1368.960..1371.360 overlaps CSR gen_trigger_regs.g_dbg_tmatch_reg[0].u_tmatch_value_csr.rd_data_o_26_ Metal3 at(1366.940,1051.580)-(1374.820,1051.780).",
+  "broader_requirement": "A different complete multilayer reconnection of both affected signal branches is required, with power/clock fixed, before a preservation allowlist and executable ECO can be justified. No proof that another cell movement or full-design reroute is physically necessary. Existing detailed_route exposes no net/local-box route scope; debug net/box controls are not a supported restriction on production routing. OpenDB wire editing is supported, but no legal complete hand-edited path was established in this bounded assessment.",
+  "not_launched": [
+    "EDA",
+    "full routing",
+    "connectivity check",
+    "DRC",
+    "extraction",
+    "timing"
+  ],
+  "unresolved": [
+    "fresh-only spacing markers",
+    "runtime discrepancy",
+    "extracted timing/electrical",
+    "0.1ns hold target",
+    "CP3G acceptance/signoff",
+    "CP0C_ELECTRICAL_PENDING"
+  ]
+}

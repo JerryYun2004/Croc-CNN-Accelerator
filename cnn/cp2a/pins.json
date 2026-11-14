@@ -1,0 +1,22 @@
+{
+  "version": "1.2-openroad-lef-init",
+  "cp1_package_manifest": "8a34b72488c76924c15c9c985dd91631f003d52a9a3a4c5c8bff3170b08424d4",
+  "cp1_evidence_manifest": "80c7b6d4f82417ab90a25f877fea1a3f4d9910fbe985d901f407da2e4c774f01",
+  "cp1_model_sha256": "7a0f4a754fabb3201ed9da1b730d390ff49e4c2d431582f7aa1e2b7294f1a2fc",
+  "liberty": {
+    "path": "ihp13/pdk/lib/sg13g2_stdcell_typ_1p20V_25C.lib",
+    "sha256": "7677a8918689f452e80405ad16a83e744709342574f2aedcc507c2758986b396"
+  },
+  "sram_lef": {
+    "path": "ihp13/pdk/lef/RM_IHPSG13_1P_512x32_c2_bm_bist.lef",
+    "sha256": "6e483caff960deaeb97e69a205bbb811b94b4aba15d27d48658e9d5248733cfd"
+  },
+  "technology_lef": {
+    "path": "ihp13/pdk/lef/sg13cmos5l_tech.lef",
+    "sha256": "3edd5a1ad31e8307be537d0d1b85c3258fefeb21aac04aaa476e4f72de4cffd5"
+  },
+  "standard_cell_lef": {
+    "path": "ihp13/pdk/lef/sg13g2_stdcell.lef",
+    "sha256": "c9bbc02d0c2cba3b15cd89a208750d25de882f02a2927ae78ba6422109fb01d0"
+  }
+}

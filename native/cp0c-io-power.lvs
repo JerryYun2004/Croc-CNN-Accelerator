@@ -1,0 +1,107 @@
+# Fresh power pad in a disposable physical supply harness.
+threads(2)
+# %include sg13cmos5l.lvs
+require 'json'
+def cp0d_assert(ok,message)
+  raise message unless ok
+end
+def cp0d_all(object,method)
+  result=[];object.send(method) { |x| result << x };result
+end
+def cp0d_inventory(c)
+  {name:c.name,nets:cp0d_all(c,:each_net).map(&:expanded_name).sort,
+   pins:cp0d_all(c,:each_pin).map { |p| [p.name,c.net_for_pin(p.id)&.expanded_name] },
+   devices:cp0d_all(c,:each_device).map do |d|
+     dc=d.device_class
+     {name:d.expanded_name,model:dc.name,
+      parameters:dc.parameter_definitions.to_h { |p| [p.name,d.parameter(p.id)] },
+      terminals:dc.terminal_definitions.to_h { |t| [t.name,d.net_for_terminal(t.id)&.expanded_name] }}
+   end}
+end
+def cp0d_save(config,report,milestone)
+  report[:milestone]=milestone
+  File.write(config.fetch('result'),JSON.pretty_generate(report)+"\n")
+end
+
+cp0d_assert(NET_ONLY && !SIMPLIFY && !COMBINE_DEVICES && !PURGE && !PURGE_NETS,
+            'Unexpected extraction/simplification switches')
+cp0d_assert(!DISABLE_TAP_EXTRACTION && !IGNORE_TOP_PORTS_MISMATCH && IMPLICIT_NETS.empty?,
+            'Unexpected waiver or implicit connection')
+cp0d_assert(PARALLEL_RES && !SERIES_RES,'Unexpected reduction switches')
+config=JSON.parse(File.read($cp0d_config))
+state=lvs_data;nl=netlist
+nl.flatten;c=nl.top_circuit
+cp0d_assert(nl.top_circuits.size==1 && c.name==config.fetch('top'),'Unexpected extracted top')
+report={variant:config.fetch('variant'),references:[],net_joins:0,
+        implicit_connections:[],blackboxes:[],tap_extraction_enabled:true}
+report[:before_combine]=cp0d_inventory(c)
+cp0d_save(config,report,'raw_pad_extracted')
+state.write(File.join(config.fetch('output'),'raw-extract.lvsdb'))
+cp0d_assert(report[:before_combine][:nets].uniq.size==report[:before_combine][:nets].size,
+            'Split/duplicate boundary net names; review raw pad inventory')
+nl.combine_devices
+report[:after_combine]=cp0d_inventory(c)
+cp0d_save(config,report,'parallel_devices_combined')
+state.write(File.join(config.fetch('output'),'reduced-extract.lvsdb'))
+# The Python worker independently audits these complete pre/post inventories.
+cp0d_save(config,report,'reduction_inventory_saved')
+devices=cp0d_all(c,:each_device)
+counts=devices.each_with_object(Hash.new(0)) { |d,h| h[d.device_class.name.downcase]+=1 }
+expected=config.fetch('expected_models')
+cp0d_assert(counts==expected,'Complete-pad device inventory differs: '+counts.to_s)
+cp0d_assert(cp0d_all(c,:each_subcircuit).empty?,'Pad did not flatten fully')
+ps=cp0d_all(c,:each_pin)
+cp0d_assert(ps.map(&:name).sort==config.fetch('ports').sort,'Pad boundary ports differ')
+ps_by_name=ps.to_h { |p| [p.name,c.net_for_pin(p.id).expanded_name] }
+cp0d_assert(ps_by_name.values.uniq.size==config.fetch('ports').size,'External ports are shorted')
+witnesses=[]
+devices.each do |d|
+  model=d.device_class.name.downcase
+  term=case model
+       when 'sg13_lv_nmos','sg13_hv_nmos';'B'
+       when 'ptap1';'WELL'
+       when 'dantenna';'A'
+       when 'rppd';'rppd_sub'
+       end
+  witnesses << [d,term,d.net_for_terminal(term)] unless term.nil?
+end
+report[:substrate_witnesses]=witnesses.map { |d,t,n| {device:d.expanded_name,terminal:t,net:n&.expanded_name} }
+cp0d_save(config,report,'substrate_witnesses_collected')
+cp0d_assert(witnesses.size==config.fetch('expected_witnesses'),'Substrate witness coverage differs')
+cp0d_assert(witnesses.all? { |d,t,n| !n.nil? },'Disconnected bulk terminal')
+bulk=witnesses.first[2]
+cp0d_assert(witnesses.all? { |d,t,n| n.expanded_name==bulk.expanded_name },'Pad substrate is physically split')
+cp0d_assert(!ps_by_name.values.include?(bulk.expanded_name),'Substrate aliases an external supply')
+# The boundary is exposed on an existing net; no physical nets are joined.
+c.connect_pin(c.create_pin('sub!'),bulk)
+errors=cp0d_all(state,:each_error).map(&:to_s)
+cp0d_assert(errors.empty?,'Extraction errors: '+errors.to_s)
+report.merge!({layout:cp0d_inventory(c),extraction_errors:errors,substrate_net_key:bulk.expanded_name,
+               added_boundary_port:'sub!'})
+cp0d_save(config,report,'physical_boundary_verified')
+config.fetch('references').each do |name,path|
+  ref=RBA::Netlist.new;ref.read(path,RBA::NetlistSpiceReader.new(CustomReader.new));ref.flatten
+  cp0d_assert(ref.top_circuits.size==1 && ref.top_circuit.name.upcase==c.name.upcase,'Reference top differs')
+  # The PDK device extractor omits pure pass-through metal. The independent
+  # metal/via-only gate checks ALL four rails and their physical separation.
+  # Remove only this explicitly named, device-free reference port/net. No
+  # device or connection may be removed, and no layout nets are fabricated.
+  rc=ref.top_circuit
+  pass_name=config.fetch('pass_through')
+  pass_pins=cp0d_all(rc,:each_pin).select { |p| p.name.downcase==pass_name }
+  cp0d_assert(pass_pins.size==1,'Expected one reference pass-through port')
+  pass_pin=pass_pins.first;pass_net=rc.net_for_pin(pass_pin.id)
+  cp0d_assert(!pass_net.nil? && cp0d_all(pass_net,:each_terminal).empty? &&
+             cp0d_all(pass_net,:each_subcircuit_pin).empty? &&
+             cp0d_all(pass_net,:each_pin).size==1,'Pass-through reference rail carries a device/alias')
+  rc.remove_pin(pass_pin.id);rc.remove_net(pass_net)
+  report[:reference_pass_through_projection]={port:pass_name,devices_removed:0,
+    layout_nets_added:0,verification:'all four rails independently checked in physical metal gate'}
+  pre=cp0d_inventory(ref.top_circuit);ref.combine_devices;post=cp0d_inventory(ref.top_circuit)
+  
+  state.reference=ref;dest=File.join(config.fetch('output'),name+'.lvsdb');state.write(dest)
+  report[:references] << {name:name,database:dest,reference:post,before_combine:pre,after_combine:post}
+  cp0d_save(config,report,'reference_saved_'+name)
+end
+cp0d_save(config,report,'complete')
+puts 'CP0C_IO_POWER_EXTRACTION_COMPLETE '+config.fetch('variant')

@@ -54,6 +54,14 @@ sources:
       - rtl/croc_domain.sv
       - rtl/user_domain.sv
       # add your design files with modules here
+      # CP2C: accepted CNN engine and OBI/SRAM peripheral
+      - cnn/cp2a/rtl/cnn_mac.sv
+      - cnn/cp2a/rtl/cnn_quant.sv
+      - cnn/cp2a/rtl/cnn_engine.sv
+      - cnn/cp2b/rtl/cnn_obi.sv
+      - cnn/cp2b/rtl/cnn_sram_4k.sv
+      - cnn/cp2b/rtl/cnn_peripheral.sv
+      - cnn/cp2b/integration/cnn_croc.sv
       # Level 3
       - rtl/croc_soc.sv
 

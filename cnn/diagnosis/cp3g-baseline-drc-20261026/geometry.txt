@@ -1,0 +1,7 @@
+Units: micrometres; DEF DBU=1000
+Via1_XY Metal2: (557.685,840.695)-(557.885,840.985)
+Via2_YX Metal2: (557.680,841.115)-(557.890,841.405)
+Connecting Metal2 segment: x=557.785, y=840.840..841.260, width=0.200
+Reported marker: (557.685,840.985)-(557.885,841.115)
+Enclosure vertical separation=0.130; local LEF base spacing=0.210.
+Connecting segment spans this marker; raw enclosure separation alone does not prove a spacing violation of the metal union.

@@ -1,0 +1,71 @@
+MACRO sg13g2_buf_4
+  CLASS CORE ;
+  ORIGIN 0 0 ;
+  FOREIGN sg13g2_buf_4 0 0 ;
+  SIZE 3.84 BY 3.78 ;
+  SYMMETRY X Y ;
+  SITE CoreSite ;
+  PIN X
+    DIRECTION OUTPUT ;
+    USE SIGNAL ;
+    ANTENNADIFFAREA 1.4136 LAYER Metal1 ;
+    PORT
+      LAYER Metal1 ;
+        RECT 1.765 1.995 2.025 3.13 ;
+        RECT 0.745 1.065 2.025 1.225 ;
+        RECT 1.765 0.645 2.025 1.225 ;
+        RECT 0.745 1.995 2.025 2.165 ;
+        RECT 0.745 0.605 1.005 3.13 ;
+        RECT 0.32 1.525 1.005 1.84 ;
+    END
+  END X
+  PIN A
+    DIRECTION INPUT ;
+    USE SIGNAL ;
+    ANTENNAMODEL OXIDE1 ;
+      ANTENNAGATEAREA 0.3146 LAYER Metal1 ;
+    PORT
+      LAYER Metal1 ;
+        RECT 2.7 1.475 3.15 1.885 ;
+    END
+  END A
+  PIN VDD
+    DIRECTION INOUT ;
+    USE POWER ;
+    SHAPE ABUTMENT ;
+    NETEXPR "VDD VDD!" ;
+    PORT
+      LAYER Metal1 ;
+        RECT 0 3.56 3.84 4 ;
+        RECT 3.295 2.64 3.555 4 ;
+        RECT 2.275 2.08 2.535 4 ;
+        RECT 1.255 2.49 1.515 4 ;
+        RECT 0.235 2.115 0.495 4 ;
+    END
+  END VDD
+  PIN VSS
+    DIRECTION INOUT ;
+    USE GROUND ;
+    SHAPE ABUTMENT ;
+    NETEXPR "VSS VSS!" ;
+    PORT
+      LAYER Metal1 ;
+        RECT 0 -0.22 3.84 0.22 ;
+        RECT 2.375 0.61 2.975 0.87 ;
+        RECT 2.545 -0.22 2.805 0.87 ;
+        RECT 1.255 -0.22 1.515 0.87 ;
+        RECT 0.235 -0.22 0.495 1.21 ;
+    END
+  END VSS
+  OBS
+    LAYER Metal1 ;
+      RECT 2.785 2.15 3.045 2.77 ;
+      RECT 2.785 2.15 3.59 2.42 ;
+      RECT 3.4 0.64 3.59 2.42 ;
+      RECT 1.68 1.54 2.43 1.8 ;
+      RECT 2.265 1.05 2.43 1.8 ;
+      RECT 2.265 1.05 3.59 1.21 ;
+      RECT 3.245 0.64 3.59 1.21 ;
+  END
+  PROPERTY CatenaDesignType "deviceLevel" ;
+END sg13g2_buf_4

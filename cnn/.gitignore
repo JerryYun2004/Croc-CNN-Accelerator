@@ -1,0 +1,10 @@
+/results/
+/data/
+/.venv/
+/__pycache__/
+**/__pycache__/
+*.pyc
+.DS_Store
+
+# Disposable physical-design inputs/outputs in historical diagnosis runs
+/diagnosis/**/work/

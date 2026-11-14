@@ -1,0 +1,33 @@
+{
+  "version": "1.0-final-db-load-sweep",
+  "openroad_pin": "c463e998615210dc322c999fc9a9f56885dbd664",
+  "openroad_sha256": "be69fd9db351797d8e1bc87de0b7070410a7ed2e0aec8c01585cfb3841d9f0ee",
+  "physical_run": "cp0c-sram-power-20261020-233953-4p5z8tr1",
+  "internal_run": "cp0c-internal-close-20261019-153233-hs8ve5s7",
+  "physical_odb": "a677d2a48c8d3e39a0a4c104582cf36124184b3ee01142be0210df189f6b9525",
+  "control_odb": "67bba20d204c54a94dc4b1bcf573279ff05b899c39bfd220dd9f8e7a7fc9d9a3",
+  "sdc": "f0216b26bf10e67bee572a0c8058413f6f0cbfb2c9d167368fb17bc92efe202c",
+  "control_spef": "229a342c03a494447863e39228d0d1edd52796d2bedbd45f3c19fb51fac33208",
+  "libraries": {
+    "RM_IHPSG13_1P_512x32_c2_bm_bist_fast_1p32V_m55C.lib": "1e88cf828c81de2512d5294d0a3922854cebc8913de9af485f3e7c9fb08c3a42",
+    "RM_IHPSG13_1P_512x32_c2_bm_bist_typ_1p20V_25C.lib": "1a7409f75c7107385d01f8b2e9cde5d22ee54e1e914643b70e19833e03f3e9b0",
+    "sg13cmos5l_io_fast_1p32V_3p6V_m40C.lib": "f25da27e4cc0c94ffbce99e0654814a3af48d00c4ec571c9db5915208a7bbe07",
+    "sg13cmos5l_io_typ_1p2V_3p3V_25C.lib": "e6b5adf1ce31db3a0c15e5ca069c62e7d9efb604a710b8f6582700f1721d2d98",
+    "sg13g2_stdcell_fast_1p32V_m40C.lib": "f191a3132d0f2f59ca2721884cdb1d8360c8fbf3e0012056af62583dd69ae701",
+    "sg13g2_stdcell_typ_1p20V_25C.lib": "7677a8918689f452e80405ad16a83e744709342574f2aedcc507c2758986b396"
+  },
+  "replay_files": {
+    "reports/conclusion.json": "b2cfd4ef80c0387aa4b975cc6fe0f48016da0c6de9151638069060cf05fbc1bb",
+    "reports/preservation.json": "885758c54985f6408472006de9dd25fac0cee35f6fd58850e444e1fbb464f00c",
+    "provenance.json": "56fcd174fd84e27f90cc2ac817b6daa7b6e4f2a680d199697bf2b386a1e5635e",
+    "comparisons/baseline/result.json": "82f2b0ff8f3c4f91217f68023d62f959643cd02ec54b91c4fb795b42283b3f82",
+    "status.txt": "7f0729509aa8704f5399ae291af0a217afdbac12e30b894836c8cf0bda532988",
+    "exit-status.txt": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  },
+  "prior_files": {
+    "source.sha256": "9779548fa65501b1747e2ef05ee95cc926fc0a3bb07310a483522fe11cbc75bc",
+    "replay/reports/final.tsv": "7017ecc1e991aee676a75473e55d9d1c0e35c763974fc2bb96f366f1fd4765ec",
+    "replay/reports/final-erc.rpt": "e49bb3405993766fbc2132f0bc3f106ef3ed614f6cf5434e874e2627bd9869e6",
+    "replay/reports/unannotated.tsv": "c8b47d15f1f45f2a66cc510001b9247762081223654335d240af21348fd1799a"
+  }
+}

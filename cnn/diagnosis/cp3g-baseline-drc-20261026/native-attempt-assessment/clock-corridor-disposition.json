@@ -1,0 +1,39 @@
+{
+  "status": "PROPOSED_CORRIDOR_BLOCKED_NO_ECO_CREATED",
+  "source_candidate": "cp3g-native-baseline-20261026-141130-4hob7_j3",
+  "source_def_sha256": "0d19b01227774abc7fa36ab222b2dc8808e1d9f3cc5da3bbb6e2c50538b704da",
+  "proposal_clock_trunk_um": [
+    1369.275,
+    1050.84,
+    1369.275,
+    1053.36
+  ],
+  "primary_blocking_net": "cp3d_fanout_net_18231824",
+  "blocking_metal2_wire_bbox_um": [
+    1369.34,
+    1051.16,
+    1369.54,
+    1059.76
+  ],
+  "new_trunk_bbox_um": [
+    1369.175,
+    1050.74,
+    1369.375,
+    1053.46
+  ],
+  "overlap_width_um": 0.035,
+  "required_clock_NDR_spacing_um": 0.56,
+  "additional_blocking_net": "cp3d_fanout_net_22022203",
+  "additional_clearance_um": 0.115,
+  "original_candidate_status": "DRC_FAIL",
+  "speculative_fanout_move": "NOT_IMPLEMENTED",
+  "EDA_runs": "NONE",
+  "launcher": "NOT_PREPARED_BECAUSE_CORRIDOR_BLOCKED",
+  "previous_runtime_discrepancy": "UNRESOLVED",
+  "hold_margin": "PENDING",
+  "extraction": "PENDING",
+  "timing": "PENDING",
+  "cp3g_acceptance": "PENDING",
+  "signoff": "PENDING",
+  "cp0c_electrical": "PENDING"
+}
